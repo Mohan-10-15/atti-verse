@@ -3,10 +3,12 @@ import { SITE } from '../../config/site.js'
 
 // Lightweight SEO manager: sets document title + meta description
 // per page, preserving global defaults otherwise.
+const OG_IMAGE = `${import.meta.env.BASE_URL}images/og-image.jpg`
+
 function Seo({
   title,
   description,
-  image = '/images/og-image.jpg',
+  image = OG_IMAGE,
   type = 'website',
   path = '/',
 }) {

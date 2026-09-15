@@ -8,9 +8,27 @@
 // Supported formats: /images/your-file.jpg|webp|png|...
 // You can drop real files into /public/images and the paths
 // below will just work.
+//
+// NOTE: On GitHub Pages the site runs from a subpath (/atti-verse/),
+// so every path is automatically prefixed with the base URL below.
 // ============================================================
 
-export const IMAGES = {
+const BASE = import.meta.env.BASE_URL // '/atti-verse/'
+
+const withBase = (value) => {
+  if (typeof value === 'string') {
+    return value.startsWith('/') ? `${BASE}${value.slice(1)}` : value
+  }
+  if (Array.isArray(value)) return value.map(withBase)
+  if (value && typeof value === 'object') {
+    const out = {}
+    for (const key of Object.keys(value)) out[key] = withBase(value[key])
+    return out
+  }
+  return value
+}
+
+export const IMAGES = withBase({
   // --- Brand logo -------------------------------------------
   // Replace with your final logo file (png/webp/svg) as needed.
   logo: '/images/atti-verse-logo.jpeg',
@@ -100,7 +118,7 @@ export const IMAGES = {
     '/images/certificates/certificate-02.jpg',
     '/images/certificates/certificate-03.jpg',
   ],
-}
+})
 
 // Alternative flat export for convenience
 export const IMG = IMAGES

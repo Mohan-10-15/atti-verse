@@ -18,7 +18,7 @@ export const SITE = {
   email: '', // e.g. 'hello@attiverse.in'
   phone: '', // e.g. '+91 90000 00000'
   address: '', // e.g. 'Chennai, Tamil Nadu, India'
-  url: '', // e.g. 'https://www.attiverse.in'
+  url: 'https://mohan-10-15.github.io/atti-verse/',
 }
 
 // True only once real contact details are filled in above.
