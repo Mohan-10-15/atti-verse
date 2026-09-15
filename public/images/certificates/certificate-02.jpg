@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1200" viewBox="0 0 1000 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c1818"/>
+      <stop offset="55%" stop-color="#102020"/>
+      <stop offset="100%" stop-color="#102020"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E5C76B"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#E5C76B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1200" fill="url(#bg)"/>
+  <rect x="60" y="72" width="880" height="1056" fill="none" stroke="#D4AF37" stroke-opacity="0.4" stroke-width="1"/>
+  <rect x="73" y="87.6" width="854" height="1024.8" fill="none" stroke="#D4AF37" stroke-opacity="0.22" stroke-width="1"/>
+  <text x="500" y="600" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="85" font-weight="700" fill="url(#gold)" letter-spacing="14">AV</text>
+  <text x="500" y="738" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" letter-spacing="6" fill="#FFFFFF" font-weight="600">ATTII VERSE</text>
+  <text x="500" y="786" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="4" fill="#E5C76B" fill-opacity="0.85">Certificate</text>
+</svg>

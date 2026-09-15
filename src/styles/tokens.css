@@ -1,0 +1,443 @@
+/* ============================================================
+   ATTII VERSE — Design Tokens, Reset & Base
+   ============================================================ */
+
+:root {
+  /* Brand colors — from official ATTII VERSE logo (desaturated teal-black + bronze gold) */
+  --emerald-black: #070d0d;
+  --emerald-950: #0c1818;
+  --emerald-900: #102020;
+  --emerald-800: #152727;
+  --emerald-700: #1c2f2f;
+  --emerald-600: #253b3b;
+  --emerald-500: #2f4a4a;
+
+  /* Unified site background — matches logo dark */
+  --emerald-bg: #102020;
+  --emerald-deep: #0c1818;
+  --emerald-black: #070d0d;
+
+  --gold: #b08c40;
+  --gold-soft: #dfc383;
+  --gold-faint: rgba(176, 140, 64, 0.22);
+  --gold-line: rgba(176, 140, 64, 0.42);
+
+  --white: #ffffff;
+  --off-white: #f4faf7;
+  --mist: #eef7f2;
+
+  /* Compatibility aliases — the whole site is a unified dark emerald */
+  --section-bg: var(--emerald-bg);
+
+  /* Text on dark emerald */
+  --ink: #e8eeea;
+  --text-muted: #b6c5bf;
+  --text-faint: #7e918a;
+
+  /* Surfaces */
+  --panel: rgba(255, 255, 255, 0.05);
+  --panel-2: rgba(255, 255, 255, 0.08);
+  --line: rgba(176, 140, 64, 0.2);
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --tracking-display: 0.01em;
+  --tracking-caps: 0.18em;
+
+  /* Spacing & layout */
+  --container: 1200px;
+  --container-wide: 1400px;
+  --section-gap: clamp(5rem, 10vw, 8.5rem);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Effects */
+  --shadow-soft: 0 18px 50px -18px rgba(1, 11, 8, 0.6);
+  --shadow-gold: 0 16px 40px -16px rgba(176, 140, 64, 0.32);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --header-h: 84px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--emerald-bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--emerald-black);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--emerald-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--emerald-700);
+  border-radius: 8px;
+  border: 3px solid var(--emerald-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* ============================================================
+   Typography
+   ============================================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--white);
+}
+
+.display-title {
+  font-size: clamp(2.6rem, 6.5vw, 5.2rem);
+  font-weight: 700;
+  letter-spacing: var(--tracking-display);
+}
+
+.display-title--xl {
+  font-size: clamp(3rem, 8vw, 7rem);
+  letter-spacing: 0.08em;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  letter-spacing: var(--tracking-display);
+}
+
+.section-title--dark {
+  color: var(--white);
+}
+
+.card-title {
+  font-size: 1.35rem;
+}
+
+/* Gold gradient text */
+.text-gold {
+  background: linear-gradient(100deg, var(--gold-soft) 0%, var(--gold) 45%, var(--gold-soft) 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold);
+}
+
+.text-gold-solid {
+  color: var(--gold);
+}
+
+/* ============================================================
+   Layout primitives
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.container--wide {
+  max-width: var(--container-wide);
+}
+
+.section {
+  padding-block: var(--section-gap);
+  position: relative;
+  background: var(--emerald-bg);
+}
+
+.section--dark {
+  background: var(--emerald-deep);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.section--dark h2,
+.section--dark h3 {
+  color: var(--white);
+}
+
+.section--light-green {
+  background: var(--emerald-950);
+}
+
+.section--off-white {
+  background: var(--emerald-bg);
+}
+
+/* ============================================================
+   Eyebrows & section headings
+   ============================================================ */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.eyebrow--center::after {
+  content: '';
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.section-head {
+  max-width: 760px;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-head--center .eyebrow--center {
+  justify-content: center;
+}
+
+.section-head__title {
+  margin-top: 1.1rem;
+}
+
+.section-head__sub {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  color: var(--text-muted);
+}
+
+.section-head--dark .section-head__sub {
+  color: var(--text-muted);
+}
+
+.gold-rule {
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin-top: 1.4rem;
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+}
+
+.section-head--center .gold-rule {
+  margin-inline: auto;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.9rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: all 0.35s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateY(101%);
+  transition: transform 0.4s var(--ease-out);
+  z-index: 0;
+}
+
+.btn > span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn--gold {
+  background: linear-gradient(100deg, var(--gold-soft), var(--gold));
+  color: var(--emerald-black);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn--gold::after {
+  background: var(--gold-soft);
+}
+
+.btn--gold:hover {
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  border-color: var(--gold-line);
+  color: var(--white);
+}
+
+.btn--outline::after {
+  background: var(--gold);
+}
+
+.btn--outline:hover {
+  color: var(--emerald-black);
+  border-color: var(--gold);
+}
+
+.btn--outline-gold {
+  border-color: var(--gold-line);
+  color: var(--gold-soft);
+}
+
+.btn--outline-gold::after {
+  background: var(--gold);
+}
+
+.btn--outline-gold:hover {
+  color: var(--emerald-black);
+}
+
+.btn--emerald {
+  background: rgba(176, 140, 64, 0.12);
+  border-color: var(--gold-line);
+  color: var(--gold-soft);
+}
+
+.btn--emerald::after {
+  background: var(--gold);
+}
+
+.btn--emerald:hover {
+  color: var(--emerald-black);
+  border-color: var(--gold);
+}
+
+.btn:hover::after {
+  transform: translateY(0);
+}
+
+.btn--icon-arrow {
+  font-size: 1.05rem;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.btn:hover .btn--icon-arrow {
+  transform: translateX(4px);
+}
+
+/* Ghost text link */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  padding-bottom: 4px;
+  background-image: linear-gradient(var(--gold), var(--gold));
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  background-position: left bottom;
+  transition: background-size 0.4s var(--ease-out), color 0.3s;
+}
+
+.text-link:hover {
+  color: var(--gold);
+  background-size: 100% 2px;
+}
+
+.text-link--dark {
+  color: var(--gold-soft);
+}
+
+.text-link--dark:hover {
+  color: var(--gold);
+}
