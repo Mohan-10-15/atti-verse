@@ -81,7 +81,7 @@ function Navbar() {
           </nav>
 
           <Link to="/contact" className="btn btn--gold nav__cta">
-            <span>Work With Us</span>
+            <span>Start a Project</span>
           </Link>
 
           <button
@@ -117,7 +117,7 @@ function Navbar() {
           </ul>
         </nav>
         <Link to="/contact" className="btn btn--gold mobile-menu__cta">
-          <span>Work With Us</span>
+          <span>Start a Project</span>
         </Link>
       </div>
     </>

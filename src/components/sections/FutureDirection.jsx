@@ -4,7 +4,7 @@ import SectionHeading from './../ui/SectionHeading.jsx'
 import { FUTURE_DIRECTION, FUTURE_DIRECTION_NOTE } from '../../data/organization.js'
 
 // Future direction — "What's Next".
-function FutureDirection({ eyebrow = 'Future Direction' }) {
+function FutureDirection({ eyebrow = '09 — The Next Verse' }) {
   return (
     <section className="section section--dark">
       <div className="container">

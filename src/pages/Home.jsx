@@ -3,15 +3,11 @@ import Seo from '../components/ui/Seo.jsx'
 import Reveal from '../components/ui/Reveal.jsx'
 import Img from '../components/ui/Img.jsx'
 import Icon from '../components/ui/Icon.jsx'
-import SectionHeading from '../components/ui/SectionHeading.jsx'
-import CTASection from '../components/ui/CTASection.jsx'
-import Testimonials from '../components/ui/Testimonials.jsx'
 import EventCard from '../components/cards/EventCard.jsx'
 import WhyAttii from '../components/sections/WhyAttii.jsx'
 import ServicesIndex from '../components/sections/ServicesIndex.jsx'
 import ProductionShowcase from '../components/sections/ProductionShowcase.jsx'
 import TalentSection from '../components/sections/TalentSection.jsx'
-import OrganizationTree from '../components/sections/OrganizationTree.jsx'
 import FutureDirection from '../components/sections/FutureDirection.jsx'
 import InstitutionalCTA from '../components/sections/InstitutionalCTA.jsx'
 import { IMAGES } from '../config/images.js'
@@ -19,7 +15,6 @@ import { SITE } from '../config/site.js'
 import { FEATURED_EVENTS, EVENT_PLACEHOLDERS } from '../data/events.js'
 import { WORK } from '../data/work.js'
 import { LEADERSHIP } from '../data/team.js'
-import { HOME_MILESTONES } from '../data/achievements.js'
 
 function Hero() {
   return (
@@ -42,6 +37,12 @@ function Hero() {
       </div>
       <div className="hero__overlay" />
       <div className="hero__grain" aria-hidden="true" />
+      <div className="hero__frame" aria-hidden="true">
+        <span className="hero__frame-corner hero__frame-corner--tl" />
+        <span className="hero__frame-corner hero__frame-corner--tr" />
+        <span className="hero__frame-corner hero__frame-corner--bl" />
+        <span className="hero__frame-corner hero__frame-corner--br" />
+      </div>
 
       <div className="hero__inner">
         <div className="hero__top">
@@ -59,7 +60,10 @@ function Hero() {
         <div className="hero__gold-rule hero-line" style={{ animationDelay: '0.4s' }} />
 
         <p className="hero__tagline hero-line" style={{ animationDelay: '0.55s' }}>
-          Entertainment. Production. Experiences.
+          Our Talent. Our Verse.
+        </p>
+        <p className="hero__statement hero-line" style={{ animationDelay: '0.6s' }}>
+          Entertainment, events and production — built with creative discipline.
         </p>
 
         <div className="hero__actions hero-line" style={{ animationDelay: '0.7s' }}>
@@ -68,94 +72,49 @@ function Hero() {
             <Icon name="arrow-right" size={16} className="btn--icon-arrow" />
           </Link>
           <Link to="/contact" className="btn btn--outline">
-            <span>Work With Us</span>
+            <span>Plan Your Event</span>
           </Link>
         </div>
 
-        <div className="hero__meta hero-line" style={{ animationDelay: '0.85s' }}>
+        <div className="hero__meta hero-line" style={{ animationDelay: '0.9s' }}>
           <span>Entertainment</span>
-          <span className="hero__meta-sep">/</span>
-          <span>Events</span>
-          <span className="hero__meta-sep">/</span>
+          <span className="hero__meta-sep" aria-hidden="true">·</span>
           <span>Production</span>
-          <span className="hero__meta-sep">/</span>
-          <span>Creative</span>
+          <span className="hero__meta-sep" aria-hidden="true">·</span>
+          <span>Events</span>
+          <span className="hero__meta-sep" aria-hidden="true">—</span>
+          <span>MMXXVI</span>
         </div>
       </div>
     </section>
   )
 }
 
-function Introduction() {
+function VerseIntro() {
   return (
     <section className="section intro-statement">
       <div className="container">
         <Reveal dir="up">
-          <p className="intro-statement__line">WE CREATE</p>
+          <span className="eyebrow">01 — The Verse</span>
         </Reveal>
         <Reveal dir="up" delay={100}>
-          <p className="intro-statement__line intro-statement__line--gold">EXPERIENCES.</p>
+          <p className="intro-statement__line" style={{ marginTop: '1.4rem' }}>A UNIVERSE OF</p>
         </Reveal>
         <Reveal dir="up" delay={200}>
-          <p className="intro-statement__line">WE BUILD</p>
+          <p className="intro-statement__line intro-statement__line--gold">TALENT &amp; CRAFT.</p>
         </Reveal>
         <Reveal dir="up" delay={300}>
-          <p className="intro-statement__line intro-statement__line--gold">TALENT.</p>
+          <p className="intro-statement__note">
+            {SITE.fullName} brings together entertainment, event management, media production,
+            creative services and talented creators under one growing platform — built with
+            structure, run with discipline.
+          </p>
         </Reveal>
         <Reveal dir="up" delay={400}>
-          <p className="intro-statement__line">WE PRODUCE</p>
+          <Link to="/about" className="text-link mt-md" style={{ alignItems: 'center' }}>
+            Discover ATTII VERSE →
+          </Link>
         </Reveal>
-        <Reveal dir="up" delay={500}>
-          <p className="intro-statement__line intro-statement__line--gold">STORIES.</p>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
-function BrandIntro() {
-  return (
-    <section className="section">
-      <div className="container grid-2">
-        <Reveal dir="right" delay={100}>
-          <div style={{ position: 'relative' }}>
-            <Img
-              src={IMAGES.aboutHome}
-              alt="The ATTII VERSE creative ecosystem"
-              aspect="4 / 3"
-              style={{ borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-soft)' }}
-            />
-            <div className="eyebrow img-anchor">
-              CREATIVE ECOSYSTEM
-            </div>
-          </div>
-        </Reveal>
-        <div>
-          <Reveal dir="up">
-            <span className="eyebrow">Who We Are</span>
-            <h2 className="section-title" style={{ marginTop: '1.1rem', fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
-              A growing universe of talent, creativity and production.
-            </h2>
-          </Reveal>
-          <Reveal dir="up" delay={120}>
-            <p style={{ color: 'var(--text-muted)', marginTop: '1.3rem' }}>
-              {SITE.fullName} brings together entertainment, event management, media production,
-              creative services and talented creators under one growing platform.
-            </p>
-          </Reveal>
-          <Reveal dir="up" delay={220}>
-            <p style={{ color: 'var(--text-muted)', marginTop: '1.1rem' }}>
-              What began as a college-based creative initiative has evolved into a structured
-              organization with leadership, divisions and operational systems — built for serious,
-              scalable growth.
-            </p>
-          </Reveal>
-          <Reveal dir="up" delay={320}>
-            <Link to="/about" className="text-link mt-lg">
-              Discover ATTII VERSE →
-            </Link>
-          </Reveal>
-        </div>
       </div>
     </section>
   )
@@ -169,9 +128,9 @@ function FeaturedWork() {
         <div className="work-editorial">
           <div className="work-editorial__head">
             <Reveal dir="up">
-              <span className="eyebrow">Our Work</span>
+              <span className="eyebrow">04 — Selected Work</span>
               <h2 className="section-title" style={{ marginTop: '1.1rem', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-                SELECTED <span className="text-gold">WORK.</span>
+                THE WORK WE'RE <span className="text-gold">KNOWN FOR.</span>
               </h2>
             </Reveal>
             <Reveal dir="up" delay={100}>
@@ -214,7 +173,7 @@ function FeaturedEvents() {
         <div className="section-head-row">
           <div className="section-head" style={{ marginBottom: 0 }}>
             <span className="eyebrow" style={{ color: 'var(--gold-soft)' }}>
-              Events
+              05 — Events
             </span>
             <h2 className="section-title section-head__title">MOMENTS WE'VE CREATED</h2>
           </div>
@@ -234,60 +193,6 @@ function FeaturedEvents() {
   )
 }
 
-function StructureSection() {
-  return (
-    <section className="section section--light-green">
-      <div className="container">
-        <SectionHeading
-          center
-          eyebrow="Organizational Structure"
-          title={<>BUILT WITH STRUCTURE.<br /><span className="text-gold">DRIVEN BY CREATIVITY.</span></>}
-          subtitle="Five divisions, one direction — a professional foundation underneath every creative output."
-        />
-        <OrganizationTree />
-      </div>
-    </section>
-  )
-}
-
-function Milestones() {
-  return (
-    <section className="section">
-      <div className="container">
-        <div className="milestones-editorial">
-          <div className="milestones-editorial__head">
-            <Reveal dir="up">
-              <span className="eyebrow">Milestones</span>
-              <h2 className="section-title" style={{ marginTop: '1.1rem', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-                BUILT ON <span className="text-gold">EARNED MILESTONES.</span>
-              </h2>
-            </Reveal>
-            <Reveal dir="up" delay={100}>
-              <p style={{ color: 'var(--text-muted)', marginTop: '1rem', maxWidth: '50ch' }}>
-                Every milestone below is verified. Nothing here is invented.
-              </p>
-            </Reveal>
-          </div>
-
-          <div className="milestones-editorial__list">
-            {HOME_MILESTONES.map((m, i) => (
-              <Reveal key={m.title} dir="up" delay={i * 50}>
-                <div className="milestones-editorial__row">
-                  <span className="milestones-editorial__num">{String(i + 1).padStart(2, '0')}</span>
-                  <div className="milestones-editorial__body">
-                    <h3 className="milestones-editorial__title">{m.title}</h3>
-                    {m.note && <p className="milestones-editorial__note">{m.note}</p>}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 function TeamPreview() {
   return (
     <section className="section">
@@ -296,7 +201,7 @@ function TeamPreview() {
           <div className="team-equal__head">
             <div className="section-head-row">
               <Reveal dir="up">
-                <span className="eyebrow">Leadership</span>
+                <span className="eyebrow">08 — Leadership</span>
                 <h2 className="section-title" style={{ marginTop: '1.1rem', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
                   THE PEOPLE<br />
                   <span className="text-gold">BEHIND THE VERSE.</span>
@@ -343,29 +248,16 @@ function Home() {
         path="/"
       />
       <Hero />
-      <Introduction />
-      <BrandIntro />
+      <VerseIntro />
       <WhyAttii />
       <ServicesIndex />
       <FeaturedWork />
       <FeaturedEvents />
       <ProductionShowcase />
       <TalentSection />
-      <StructureSection />
       <TeamPreview />
-      <Milestones />
       <FutureDirection />
-      <Testimonials />
       <InstitutionalCTA />
-      <CTASection
-        title="LET'S CREATE SOMETHING WORTH REMEMBERING."
-        copy={
-          <>
-            Whether you are planning an event, looking for creative production, exploring a
-            collaboration or building something new — let's start the conversation.
-          </>
-        }
-      />
     </>
   )
 }

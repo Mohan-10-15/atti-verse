@@ -158,7 +158,7 @@ function ServiceDetail() {
           <div className="related-grid" style={{ marginTop: '2rem' }}>
             {gallery.map((src, i) => (
               <Reveal key={src + i} dir="up" delay={(i % 3) * 80}>
-                <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', aspectRatio: '4 / 3' }}>
+                <div className="media-frame" style={{ aspectRatio: '4 / 3' }}>
                   <Img src={src} alt={`${service.title} — visual ${i + 1}`} />
                 </div>
               </Reveal>

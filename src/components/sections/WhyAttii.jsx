@@ -11,7 +11,7 @@ function WhyAttii() {
         <div className="why-attii">
           <div className="why-attii__intro">
             <SectionHeading
-              eyebrow="Why ATTII VERSE"
+              eyebrow="02 — Why ATTII VERSE"
               title={
                 <>
                   MORE THAN ENTERTAINMENT.

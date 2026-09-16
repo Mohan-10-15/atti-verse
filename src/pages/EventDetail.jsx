@@ -39,8 +39,8 @@ function EventDetail() {
             <Img
               src={event.image}
               alt={event.title}
+              className="media-frame"
               aspect="16 / 10"
-              style={{ borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-soft)' }}
             />
           </Reveal>
           <div>
@@ -104,33 +104,16 @@ function EventDetail() {
               <VideoBox video={event.video} poster={event.image} label="EVENT VIDEO" />
             </Reveal>
             <Reveal dir="up" delay={80}>
-              <div
-                style={{
-                  border: '1px dashed var(--gold-line)',
-                  borderRadius: 'var(--radius-md)',
-                  display: 'grid',
-                  placeItems: 'center',
-                  aspectRatio: '16 / 9',
-                  color: 'var(--gold-soft)',
-                  fontSize: '0.72rem',
-                  letterSpacing: '0.22em',
-                  textTransform: 'uppercase',
-                  textAlign: 'center',
-                  padding: '1rem',
-                  background: 'var(--emerald-deep)',
-                }}
-              >
+              <div className="cert-slot">
+                <Icon name="document" size={22} />
                 <span>
-                  <Icon name="document" size={22} />
-                  <br />
                   Certificate
-                  <br />
-                  <span style={{ color: 'var(--text-faint)' }}>To Be Added</span>
+                  <small>To Be Added</small>
                 </span>
               </div>
             </Reveal>
             <Reveal dir="up" delay={160}>
-              <div style={{ position: 'relative', borderRadius: 'var(--radius-md)', overflow: 'hidden', aspectRatio: '16 / 9' }}>
+              <div className="media-frame" style={{ aspectRatio: '16 / 9' }}>
                 <Img src={event.image} alt={event.title} />
               </div>
             </Reveal>
@@ -140,7 +123,7 @@ function EventDetail() {
             <div className="related-grid" style={{ marginTop: '2rem' }}>
               {event.gallery.map((src, i) => (
                 <Reveal key={src + i} dir="up" delay={(i % 3) * 80}>
-                  <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', aspectRatio: '4 / 3' }}>
+                  <div className="media-frame" style={{ aspectRatio: '4 / 3' }}>
                     <Img src={src} alt={`${event.title} — visual ${i + 1}`} />
                   </div>
                 </Reveal>

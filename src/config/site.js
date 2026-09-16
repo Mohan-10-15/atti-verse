@@ -49,13 +49,13 @@ export const NAV_LINKS = [
   { label: 'Work', to: '/work' },
   { label: 'Events', to: '/events' },
   { label: 'Team', to: '/team' },
-  { label: 'Achievements', to: '/achievements' },
-  { label: 'Gallery', to: '/gallery' },
-  { label: 'Contact', to: '/contact' },
 ]
 
 // Secondary links surfaced in the footer for deep pages.
 export const FOOTER_EXTRA_LINKS = [
+  { label: 'Achievements', to: '/achievements' },
+  { label: 'Gallery', to: '/gallery' },
   { label: 'Media & Productions', to: '/productions' },
   { label: "What's Next", to: '/upcoming' },
+  { label: 'Contact', to: '/contact' },
 ]

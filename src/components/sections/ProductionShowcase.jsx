@@ -55,7 +55,7 @@ function ProductionShowcase() {
         <div className="prod-show__head">
           <Reveal dir="up">
             <span className="eyebrow" style={{ color: 'var(--gold-soft)' }}>
-              Production
+              06 — From Concept to Stage
             </span>
             <h2 className="section-title" style={{ marginTop: '1.1rem' }}>
               FROM CONCEPT TO <span className="text-gold">FINAL FRAME.</span>

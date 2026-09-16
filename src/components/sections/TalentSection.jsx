@@ -23,7 +23,7 @@ function TalentSection() {
         <div className="talent__grid">
           <div>
             <SectionHeading
-              eyebrow="Creative Network"
+              eyebrow="07 — The Talent"
               title={
                 <>
                   TALENT IS WHERE

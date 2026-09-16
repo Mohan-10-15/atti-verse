@@ -71,8 +71,8 @@ function WhoWeAre() {
           <Img
             src={IMAGES.aboutHome}
             alt="The people and creative work of ATTII VERSE"
+            className="media-frame"
             aspect="4 / 3"
-            style={{ borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-soft)' }}
           />
         </Reveal>
       </div>

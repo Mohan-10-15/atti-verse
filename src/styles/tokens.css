@@ -1,63 +1,78 @@
 /* ============================================================
    ATTII VERSE — Design Tokens, Reset & Base
+   Premium editorial system v2:
+   True emerald fields + luminous gold accents, Playfair Display
+   + Inter, flat print-like surfaces, hairline rules, numbered
+   editorial sections. Two light (off-white) breaks keep the dark
+   page from reading as flat.
    ============================================================ */
 
 :root {
-  /* Brand colors — from official ATTII VERSE logo (desaturated teal-black + bronze gold) */
-  --emerald-black: #070d0d;
-  --emerald-950: #0c1818;
-  --emerald-900: #102020;
-  --emerald-800: #152727;
-  --emerald-700: #1c2f2f;
-  --emerald-600: #253b3b;
-  --emerald-500: #2f4a4a;
-
-  /* Unified site background — matches logo dark */
-  --emerald-bg: #102020;
-  --emerald-deep: #0c1818;
-
-  --gold: #b08c40;
-  --gold-soft: #dfc383;
-  --gold-faint: rgba(176, 140, 64, 0.22);
-  --gold-line: rgba(176, 140, 64, 0.42);
-
-  --white: #ffffff;
-  --off-white: #f4faf7;
-  --mist: #eef7f2;
-
-  /* Compatibility aliases — the whole site is a unified dark emerald */
-  --section-bg: var(--emerald-bg);
-
-  /* Text on dark emerald */
-  --ink: #e8eeea;
-  --text-muted: #b6c5bf;
-  --text-faint: #7e918a;
+  /* Brand palette — luscious emerald, never near-black */
+  --emerald-black: #02170F;
+  --emerald-950: #022C22;   /* deepest hinge, footer    */
+  --emerald-900: #03382A;   /* deep section surface     */
+  --emerald-800: #064E3B;   /* mid field                */
+  --emerald-700: #047857;   /* bright field accent      */
+  --emerald-600: #059669;
 
   /* Surfaces */
-  --panel: rgba(255, 255, 255, 0.05);
-  --panel-2: rgba(255, 255, 255, 0.08);
-  --line: rgba(176, 140, 64, 0.2);
+  --emerald-bg: #03382A;      /* page base surface   */
+  --emerald-base: #033120;    /* standard section    */
+  --emerald-panel: #04523C;   /* image well / lift   */
+
+  /* Luxury Gold — accent only. Soft for type, solid for structure */
+  --gold: #D4AF37;
+  --gold-soft: #E5C76B;
+  --gold-deep: #B08C40;
+  --gold-faint: rgba(212, 175, 55, 0.2);
+  --gold-line: rgba(212, 175, 55, 0.42);
+  --gold-glow: rgba(229, 199, 107, 0.12);
+
+  /* Light section (off-white) */
+  --off-white: #F3F1EA;
+  --off-white-ink: #10241A;
+  --off-white-muted: #52655A;
+  --off-white-faint: #879a8c;
+  --off-white-line: rgba(16, 36, 26, 0.14);
+  --gold-on-light: #8A6D1F;
+  --gold-soft-on-light: #A98A2A;
+
+  /* Ink (contextual — flips inside off-white sections) */
+  --ink: #F2F7F0;
+  --text-muted: #B9D2C2;
+  --text-faint: #7FA08C;
+  --heading: var(--ink);
+
+  /* Surfaces & hairlines (dark context) */
+  --panel: rgba(255, 255, 255, 0.035);
+  --panel-2: rgba(255, 255, 255, 0.06);
+  --line: rgba(185, 210, 194, 0.11);
+  --line-emerald: rgba(5, 150, 105, 0.22);
 
   /* Typography */
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --tracking-display: 0.01em;
-  --tracking-caps: 0.18em;
+  --tracking-caps: 0.22em;
 
   /* Spacing & layout */
   --container: 1200px;
-  --container-wide: 1400px;
-  --section-gap: clamp(5rem, 10vw, 8.5rem);
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --container-wide: 1440px;
+  --section-gap: clamp(4.5rem, 8vw, 7.5rem);
+  --section-gap-sm: clamp(3rem, 5vw, 4.5rem);
+
+  /* Radii — print-like. Nearly flush everywhere. */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
 
   /* Effects */
-  --shadow-soft: 0 18px 50px -18px rgba(1, 11, 8, 0.6);
-  --shadow-gold: 0 16px 40px -16px rgba(176, 140, 64, 0.32);
+  --shadow-soft: none;
+  --shadow-gold: none;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
-  --header-h: 84px;
+  --header-h: 72px;
 }
 
 *,
@@ -87,11 +102,16 @@ html {
 }
 
 body {
+  min-height: 100vh;
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.75;
   color: var(--ink);
-  background: var(--emerald-bg);
+  background:
+    radial-gradient(120% 70% at 88% -6%, var(--gold-glow), transparent 52%),
+    radial-gradient(120% 90% at 4% 110%, rgba(5, 150, 105, 0.12), transparent 55%),
+    linear-gradient(180deg, var(--emerald-800) 0%, var(--emerald-bg) 34%);
+  background-attachment: fixed;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -114,6 +134,7 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+  color: inherit;
 }
 
 input,
@@ -129,17 +150,21 @@ textarea {
   color: var(--emerald-black);
 }
 
+:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 3px;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 11px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--emerald-bg);
+  background: var(--emerald-950);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--emerald-700);
-  border-radius: 8px;
-  border: 3px solid var(--emerald-bg);
+  border: 2px solid var(--emerald-950);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold);
@@ -158,11 +183,11 @@ h6 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.12;
-  color: var(--white);
+  color: var(--heading);
 }
 
 .display-title {
-  font-size: clamp(2.6rem, 6.5vw, 5.2rem);
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
   font-weight: 700;
   letter-spacing: var(--tracking-display);
 }
@@ -173,25 +198,21 @@ h6 {
 }
 
 .section-title {
-  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  font-size: clamp(1.8rem, 3.6vw, 3rem);
   letter-spacing: var(--tracking-display);
 }
 
 .section-title--dark {
-  color: var(--white);
+  color: var(--ink);
 }
 
 .card-title {
   font-size: 1.35rem;
 }
 
-/* Gold gradient text */
+/* Gold text — solid, editorial */
 .text-gold {
-  background: linear-gradient(100deg, var(--gold-soft) 0%, var(--gold) 45%, var(--gold-soft) 80%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--gold);
+  color: var(--gold-soft);
 }
 
 .text-gold-solid {
@@ -216,37 +237,71 @@ h6 {
 .section {
   padding-block: var(--section-gap);
   position: relative;
-  background: var(--emerald-bg);
+  background: var(--emerald-base);
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(90% 60% at 92% -4%, var(--gold-glow), transparent 55%);
+  pointer-events: none;
+}
+
+.section > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .section--dark {
-  background: var(--emerald-deep);
-  color: rgba(255, 255, 255, 0.82);
+  background: var(--emerald-950);
+  color: rgba(255, 255, 255, 0.86);
 }
 
 .section--dark h2,
 .section--dark h3 {
-  color: var(--white);
+  color: var(--ink);
 }
 
 .section--light-green {
-  background: var(--emerald-950);
+  background: linear-gradient(180deg, #01382A, #033928);
 }
 
+/* Off-white editorial break — flips the ink palette */
 .section--off-white {
-  background: var(--emerald-bg);
+  background:
+    radial-gradient(90% 70% at 8% -8%, rgba(212, 175, 55, 0.08), transparent 55%),
+    var(--off-white);
+  --ink: var(--off-white-ink);
+  --heading: var(--off-white-ink);
+  --text-muted: var(--off-white-muted);
+  --text-faint: var(--off-white-faint);
+  --panel: #FFFFFF;
+  --panel-2: rgba(255, 255, 255, 0.65);
+  --line: var(--off-white-line);
+  --line-emerald: rgba(6, 78, 59, 0.2);
+  --gold: var(--gold-deep);
+  --gold-soft: var(--gold-soft-on-light);
+  --gold-faint: rgba(176, 140, 64, 0.2);
+  --gold-line: rgba(176, 140, 64, 0.4);
+  --gold-glow: rgba(176, 140, 64, 0.1);
+  color: var(--text-muted);
+}
+
+.section--off-white::before {
+  display: none;
 }
 
 /* ============================================================
-   Eyebrows & section headings
+   Eyebrows & section headings (editorial)
    ============================================================ */
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.85rem;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.7rem;
+  font-weight: 600;
   letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--gold);
@@ -256,19 +311,19 @@ h6 {
   content: '';
   width: 34px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold));
+  background: linear-gradient(90deg, transparent, currentColor);
 }
 
 .eyebrow--center::after {
   content: '';
   width: 34px;
   height: 1px;
-  background: linear-gradient(90deg, var(--gold), transparent);
+  background: linear-gradient(90deg, currentColor, transparent);
 }
 
 .section-head {
-  max-width: 760px;
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  max-width: 780px;
+  margin-bottom: clamp(2.2rem, 4.5vw, 3.5rem);
 }
 
 .section-head--center {
@@ -286,20 +341,17 @@ h6 {
 
 .section-head__sub {
   margin-top: 1rem;
-  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  font-size: clamp(1rem, 1.4vw, 1.08rem);
   color: var(--text-muted);
-}
-
-.section-head--dark .section-head__sub {
-  color: var(--text-muted);
+  line-height: 1.85;
 }
 
 .gold-rule {
   display: block;
   width: 64px;
-  height: 2px;
+  height: 1px;
   margin-top: 1.4rem;
-  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  background: var(--gold);
 }
 
 .section-head--center .gold-rule {
@@ -307,64 +359,44 @@ h6 {
 }
 
 /* ============================================================
-   Buttons
+   Buttons — two types, print-like, no glow
    ============================================================ */
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 0.65rem;
   padding: 0.95rem 1.9rem;
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   border: 1px solid transparent;
-  border-radius: 2px;
-  transition: all 0.35s var(--ease-out);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  transform: translateY(101%);
-  transition: transform 0.4s var(--ease-out);
-  z-index: 0;
-}
-
-.btn > span {
-  position: relative;
-  z-index: 1;
+  border-radius: var(--radius-sm);
+  transition: color 0.35s var(--ease-out), background 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out), transform 0.35s var(--ease-out);
 }
 
 .btn--gold {
-  background: linear-gradient(100deg, var(--gold-soft), var(--gold));
+  background: var(--gold);
   color: var(--emerald-black);
-  box-shadow: var(--shadow-gold);
-}
-
-.btn--gold::after {
-  background: var(--gold-soft);
+  border-color: var(--gold);
 }
 
 .btn--gold:hover {
-  transform: translateY(-2px);
+  background: var(--gold-soft);
+  border-color: var(--gold-soft);
+  transform: translateY(-1px);
 }
 
 .btn--outline {
   border-color: var(--gold-line);
-  color: var(--white);
-}
-
-.btn--outline::after {
-  background: var(--gold);
+  color: var(--heading);
 }
 
 .btn--outline:hover {
+  background: var(--gold);
   color: var(--emerald-black);
   border-color: var(--gold);
 }
@@ -374,31 +406,22 @@ h6 {
   color: var(--gold-soft);
 }
 
-.btn--outline-gold::after {
-  background: var(--gold);
-}
-
 .btn--outline-gold:hover {
-  color: var(--emerald-black);
-}
-
-.btn--emerald {
-  background: rgba(176, 140, 64, 0.12);
-  border-color: var(--gold-line);
-  color: var(--gold-soft);
-}
-
-.btn--emerald::after {
   background: var(--gold);
-}
-
-.btn--emerald:hover {
   color: var(--emerald-black);
   border-color: var(--gold);
 }
 
-.btn:hover::after {
-  transform: translateY(0);
+.btn--emerald {
+  background: rgba(5, 150, 105, 0.14);
+  border-color: var(--line-emerald);
+  color: var(--gold-soft);
+}
+
+.btn--emerald:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--emerald-black);
 }
 
 .btn--icon-arrow {
@@ -410,27 +433,27 @@ h6 {
   transform: translateX(4px);
 }
 
-/* Ghost text link */
+/* Ghost text link — per the brief, a hairline underline */
 .text-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold-soft);
   padding-bottom: 4px;
-  background-image: linear-gradient(var(--gold), var(--gold));
+  background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
-  background-size: 0% 2px;
+  background-size: 0% 1px;
   background-position: left bottom;
   transition: background-size 0.4s var(--ease-out), color 0.3s;
 }
 
 .text-link:hover {
   color: var(--gold);
-  background-size: 100% 2px;
+  background-size: 100% 1px;
 }
 
 .text-link--dark {

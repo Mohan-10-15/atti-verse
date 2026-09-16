@@ -1,20 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0c1818"/>
-      <stop offset="55%" stop-color="#102020"/>
-      <stop offset="100%" stop-color="#102020"/>
-    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.9" y2="1"><stop offset="0%" stop-color="#047857"/><stop offset="34%" stop-color="#044A37"/><stop offset="74%" stop-color="#02331F"/><stop offset="100%" stop-color="#011E12"/></linearGradient>
     <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#E5C76B"/>
       <stop offset="50%" stop-color="#D4AF37"/>
       <stop offset="100%" stop-color="#E5C76B"/>
     </linearGradient>
+    <radialGradient id="glow" cx="0.82" cy="0.12" r="0.9">
+      <stop offset="0%" stop-color="#E5C76B" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#E5C76B" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="1200" height="800" fill="url(#bg)"/>
-  <rect x="72" y="48" width="1056" height="704" fill="none" stroke="#D4AF37" stroke-opacity="0.4" stroke-width="1"/>
-  <rect x="87.6" y="58.4" width="1024.8" height="683.1999999999999" fill="none" stroke="#D4AF37" stroke-opacity="0.22" stroke-width="1"/>
-  <text x="600" y="400" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="102" font-weight="700" fill="url(#gold)" letter-spacing="17">AV</text>
-  <text x="600" y="492" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="19" letter-spacing="7" fill="#FFFFFF" font-weight="600">ATTII VERSE</text>
-  <text x="600" y="524" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="5" fill="#E5C76B" fill-opacity="0.85"></text>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <rect width="100%" height="100%" fill="url(#glow)"/>
+  <g filter="url(#grain)"><rect width="100%" height="100%" fill="#ffffff" fill-opacity="0"/></g>
+  <rect x="50" y="50" width="1101" height="801" fill="none" stroke="#D4AF37" stroke-opacity="0.42" stroke-width="1"/>
+  <rect x="77" y="77" width="1047" height="747" fill="none" stroke="#D4AF37" stroke-opacity="0.2" stroke-width="1"/>
+  <g>
+    <line x1="41" y1="279" x2="41" y2="333" stroke="#E5C76B" stroke-opacity="0.85" stroke-width="2"/>
+    <line x1="1159" y1="279" x2="1159" y2="333" stroke="#E5C76B" stroke-opacity="0.85" stroke-width="2"/>
+    <line x1="41" y1="567" x2="41" y2="621" stroke="#E5C76B" stroke-opacity="0.85" stroke-width="2"/>
+    <line x1="1159" y1="567" x2="1159" y2="621" stroke="#E5C76B" stroke-opacity="0.85" stroke-width="2"/>
+  </g>
+  <text x="600" y="517.32" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="198" font-weight="700" fill="url(#gold)" letter-spacing="13">ATTII VERSE</text>
+  <text x="600" y="533.16" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="600" letter-spacing="5" fill="#FFFFFF" fill-opacity="0.96">ENTERTAINMENT &amp; PRODUCTIONS</text>
+  <text x="600" y="598.26" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="25" letter-spacing="0.34em" fill="#E5C76B" fill-opacity="0.62">OUR TALENT.</text>
+  
+  <text x="77" y="56" font-family="Inter, Arial, sans-serif" font-size="35" font-weight="600" letter-spacing="0.30em" fill="#E5C76B" fill-opacity="0.9">Media Work</text>
+  <line x1="77" y1="81" x2="167" y2="81" stroke="#D4AF37" stroke-opacity="0.6" stroke-width="1"/>
 </svg>

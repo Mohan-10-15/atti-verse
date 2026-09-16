@@ -1,6 +1,7 @@
 import Seo from '../components/ui/Seo.jsx'
 import Reveal from '../components/ui/Reveal.jsx'
 import Img from '../components/ui/Img.jsx'
+import Icon from '../components/ui/Icon.jsx'
 import SectionHeading from '../components/ui/SectionHeading.jsx'
 import PageHeader from '../components/ui/PageHeader.jsx'
 import EventCard from '../components/cards/EventCard.jsx'
@@ -17,8 +18,8 @@ function VerifiedEventDetail({ event }) {
           <Img
             src={event.image}
             alt={event.title}
+            className="media-frame"
             aspect="16 / 10"
-            style={{ borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-soft)' }}
           />
         </Reveal>
         <div>
@@ -40,24 +41,12 @@ function VerifiedEventDetail({ event }) {
           <Reveal dir="up" delay={280}>
             <div className="grid-2" style={{ marginTop: '1.8rem', gap: '1rem', gridTemplateColumns: '1fr 1fr', alignItems: 'stretch' }}>
               <VideoBox video={event.video} poster={event.image} label="EVENT VIDEO — PLACEHOLDER" />
-              <div
-                style={{
-                  border: '1px dashed var(--gold-line)',
-                  borderRadius: 'var(--radius-md)',
-                  display: 'grid',
-                  placeItems: 'center',
-                  aspectRatio: '16 / 9',
-                  color: 'var(--gold-soft)',
-                  fontSize: '0.8rem',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  textAlign: 'center',
-                  padding: '1rem',
-                }}
-              >
-                Certificate
-                <br />
-                To Be Added
+              <div className="cert-slot">
+                <Icon name="document" size={22} />
+                <span>
+                  Certificate
+                  <small>To Be Added</small>
+                </span>
               </div>
             </div>
           </Reveal>
