@@ -1,12 +1,97 @@
 /* ============================================================
-   ATTII VERSE — Base utilities & shared blocks
+   ATTII VERSE — Base layer (dark theme)
+   Page header, media wells, grids, spacing helpers.
    ============================================================ */
 
-/* ---------- Image system ---------- */
+/* ---------- Page header ---------- */
+.page-header {
+  position: relative;
+  padding-top: calc(var(--header-h) + clamp(2.5rem, 6vw, 4.5rem));
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+  background: var(--emerald-900);
+  border-bottom: 1px solid var(--gold-line);
+}
+
+.page-header--image {
+  border-bottom: 1px solid var(--gold-line);
+  overflow: hidden;
+}
+
+.page-header__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.page-header__bg .img__el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-header__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(2, 23, 15, 0.74) 0%, rgba(3, 22, 16, 0.88) 100%);
+}
+
+.page-header__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+
+.page-header__breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.page-header__breadcrumb a:hover {
+  color: var(--gold);
+}
+
+.page-header__title {
+  margin-top: 1.2rem;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.page-header__sub {
+  margin-top: 1.1rem;
+  max-width: 640px;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.page-header--image .page-header__title {
+  color: #FFFFFF;
+  text-shadow: 0 2px 24px rgba(2, 23, 15, 0.5);
+}
+
+.page-header--image .page-header__sub {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.page-header--image .page-header__breadcrumb {
+  color: var(--gold-soft);
+}
+
+/* ---------- Media wells ---------- */
 .img {
   position: relative;
   overflow: hidden;
-  background: var(--cream-2);
+  background: var(--media-bg);
 }
 
 .img__el {
@@ -15,259 +100,149 @@
   object-fit: cover;
 }
 
-.img--fallback {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-}
-
-/* Soft rounded media frame */
 .media-frame {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-card);
-  background: var(--cream-2);
-  box-shadow: var(--shadow-card);
+  background: var(--media-bg);
+  border: 1px solid var(--media-border);
+  border-radius: var(--radius-lg);
 }
 
-.media-frame .img,
-.media-frame .img__el {
-  width: 100%;
-  height: 100%;
+.media-frame .img {
+  position: absolute;
+  inset: 0;
 }
 
-/* Certificate / document placeholder slot */
 .cert-slot {
-  position: relative;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  border: 1px dashed var(--line);
-  background: var(--cream);
-  border-radius: var(--radius-md);
-  aspect-ratio: 16 / 9;
-  color: var(--text-faint);
-  text-align: center;
-  padding: 1rem;
-}
-
-.cert-slot span {
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  line-height: 1.9;
-}
-
-.cert-slot small {
-  display: block;
-  margin-top: 0.2rem;
-  color: var(--text-faint);
-  letter-spacing: 0.16em;
-}
-
-/* ---------- Page header (interior hero, light) ---------- */
-.page-header {
-  position: relative;
-  padding-top: calc(var(--header-h) + clamp(3rem, 7vh, 5rem));
-  padding-bottom: clamp(3rem, 7vh, 5rem);
-  background: var(--cream);
-}
-
-.page-header .img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.page-header__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.72) 100%);
-}
-
-/* Image-backed page header */
-.page-header--image {
-  min-height: 52vh;
   display: flex;
-  align-items: flex-end;
-}
-
-.page-header--image .page-header__inner {
-  color: #fff;
-}
-
-.page-header--image .page-header__title {
-  color: #fff;
-}
-
-.page-header--image .page-header__sub {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.page-header__inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-}
-
-.page-header__breadcrumb {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold-ink);
-  font-weight: 700;
-}
-
-.page-header--image .page-header__breadcrumb {
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 220px;
+  padding: 2rem;
+  border: 1px dashed var(--gold-line);
+  border-radius: var(--radius-lg);
+  text-align: center;
   color: var(--gold-soft);
 }
 
-.page-header__breadcrumb a:hover {
-  color: var(--emerald);
+.cert-slot span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
 }
 
-.page-header__breadcrumb span:last-child {
+.cert-slot small {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
   color: var(--text-faint);
-}
-
-.page-header--image .page-header__breadcrumb span:last-child {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.page-header__title {
-  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-  font-weight: 700;
-  margin-top: 1rem;
-  line-height: 1.08;
-}
-
-.page-header__sub {
-  margin-top: 1rem;
-  max-width: 620px;
-  font-size: 1.02rem;
-  color: var(--text-muted);
-  line-height: 1.85;
+  font-weight: 500;
 }
 
 /* ---------- Grids ---------- */
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.2rem);
+  gap: 2rem;
 }
 
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(1.25rem, 2.5vw, 2rem);
+  gap: 1.8rem;
 }
 
-@media (max-width: 1024px) {
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1000px) {
+  .grid-4,
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
   .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
+    gap: 1.8rem;
   }
-}
-
-.grid-2--no-center {
-  align-items: start;
 }
 
 /* ---------- Masonry ---------- */
 .masonry {
-  columns: 3;
-  column-gap: clamp(1rem, 2vw, 1.5rem);
+  column-count: 3;
+  column-gap: 1.4rem;
+  margin-top: 2.5rem;
 }
 
 .masonry > * {
   break-inside: avoid;
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  display: inline-block;
+  width: 100%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1000px) {
   .masonry {
-    columns: 2;
+    column-count: 2;
   }
 }
 
 @media (max-width: 640px) {
   .masonry {
-    columns: 1;
+    column-count: 1;
   }
-}
-
-/* ---------- Misc ---------- */
-.hairline {
-  height: 1px;
-  background: var(--line);
-  border: none;
-}
-
-.hr-gold {
-  border: none;
-  height: 1px;
-  background: var(--line);
-}
-
-.mt-sm {
-  margin-top: 1rem;
-}
-.mt-md {
-  margin-top: 2rem;
-}
-.mt-lg {
-  margin-top: 3rem;
-}
-
-.center {
-  text-align: center;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 /* ---------- Page transition ---------- */
 .page-enter {
-  animation: pageFade 0.4s var(--ease-out) both;
+  animation: pageIn 0.5s var(--ease-out) both;
 }
 
-@keyframes pageFade {
+@keyframes pageIn {
   from {
     opacity: 0;
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+  }
+}
+
+/* ---------- Section head row (split heading + link) ---------- */
+.section-head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.section-head-row .section-head {
+  margin-bottom: 0;
+}
+
+@media (max-width: 680px) {
+  .section-head-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

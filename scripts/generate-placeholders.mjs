@@ -1,9 +1,9 @@
 // ============================================================
 // ATTII VERSE — Placeholder art generator
-// Generates quiet, neutral placeholders: a warm paper-grey
-// field with a small Manrope label. No monogram, no gold, no
-// frames — deliberately plain. Real photos can later replace
-// these files without touching any code.
+// Generates quiet, on-theme placeholders: a deep emerald field
+// with a small gold-soft label. No monogram, no ornament,
+// deliberately plain. Real photos can later replace these files
+// without touching any code.
 //
 // Files are written with their existing .jpg extensions (the
 // browser content-sniffs the SVG payload and renders it fine).
@@ -21,21 +21,28 @@ const esc = (s) =>
 
 function placeholder({ w, h, label = '' }) {
   const fs = Math.min(w, h)
-  const bg = '#EDE9E2'
-  const ink = '#8B8378'
+  const bgA = '#03382A'
+  const bgB = '#064E3B'
+  const labelColor = '#E5C76B'
+  const subColor = '#B9D2C2'
   const labelSize = Math.round(fs * 0.05)
   const subSize = Math.round(fs * 0.027)
   const labelY = h / 2
   const subY = h / 2 + labelSize * 1.6
 
   const labelBlock = label
-    ? `<text x="${w / 2}" y="${labelY}" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="${labelSize}" font-weight="600" letter-spacing="0.22em" fill="${ink}">${esc(label)}</text>`
+    ? `<text x="${w / 2}" y="${labelY}" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="${labelSize}" font-weight="600" letter-spacing="0.22em" fill="${labelColor}">${esc(label)}</text>`
     : ''
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
-  <rect width="100%" height="100%" fill="${bg}"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="${bgA}"/><stop offset="100%" stop-color="${bgB}"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
   ${labelBlock}
-  <text x="${w / 2}" y="${subY}" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="${subSize}" letter-spacing="0.3em" fill="${ink}" fill-opacity="0.55">PHOTO TO BE ADDED</text>
+  <text x="${w / 2}" y="${subY}" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="${subSize}" letter-spacing="0.3em" fill="${subColor}" fill-opacity="0.75">PHOTO TO BE ADDED</text>
 </svg>`
 }
 

@@ -17,8 +17,8 @@ function fallbackSVG(label = '') {
   </defs>
   <rect width="800" height="600" fill="url(#b)"/>
   <rect x="48" y="36" width="704" height="528" fill="none" stroke="#D4AF37" stroke-opacity="0.4" stroke-width="1"/>
-  <text x="400" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="68" font-weight="700" fill="#D4AF37" letter-spacing="10">AV</text>
-  <text x="400" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="16" letter-spacing="4" fill="#FFFFFF" font-weight="600">ATTII VERSE</text>
+  <text x="400" y="290" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="68" font-weight="700" fill="#D4AF37" letter-spacing="10">AV</text>
+  <text x="400" y="340" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="16" letter-spacing="4" fill="#FFFFFF" font-weight="600">ATTII VERSE</text>
   <text x="400" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" letter-spacing="3" fill="#E5C76B">${safe}</text>
 </svg>`
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`

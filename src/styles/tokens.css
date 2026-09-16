@@ -1,58 +1,80 @@
 /* ============================================================
    ATTII VERSE — Design Tokens, Reset & Base
-   Plain perfected: light paper surfaces, emerald brand primary,
-   gold accent only. Manrope body + Playfair Display headings.
-   No glows, no gradients, no decorative machinery.
+   Rebuilt from scratch. Dark emerald + gold editorial system:
+   true emerald fields, warm gold accents, flat print-like
+   surfaces, hairline rules. Playfair Display headings with a
+   Manrope body. No glows, no gradients on chrome, no gimmicks.
    ============================================================ */
 
 :root {
-  /* Surfaces — paper white, warm cream bands */
-  --paper: #FFFFFF;
-  --cream: #FAF7F2;
-  --cream-2: #F3EFE7;
+  /* Brand palette — luscious emerald, never near-black */
+  --emerald-black: #02170F;
+  --emerald-950: #022C22;   /* deepest hinge, footer     */
+  --emerald-900: #03382A;   /* deep section surface      */
+  --emerald-800: #064E3B;   /* mid field                 */
+  --emerald-700: #047857;   /* bright field accent       */
+  --emerald-600: #059669;
+  --emerald: #059669;
 
-  /* Ink */
-  --ink: #333333;
-  --ink-strong: #1F1B16;
-  --text-muted: #6B655C;
-  --text-faint: #9A9489;
-  --heading: var(--ink-strong);
+  /* Surfaces */
+  --emerald-bg: #03382A;      /* page base surface   */
+  --emerald-base: #033120;    /* standard section    */
+  --emerald-panel: #04523C;   /* image well / lift   */
 
-  /* Hairlines & panels */
-  --line: rgba(31, 27, 22, 0.1);
-  --line-soft: rgba(31, 27, 22, 0.06);
-
-  /* Brand — emerald primary, gold accent */
-  --emerald: #0E5A37;
-  --emerald-deep: #0B3B24;
-  --emerald-soft: #ECF3EE;
+  /* Luxury gold — accent only. Soft for type, solid for structure */
   --gold: #D4AF37;
-  --gold-soft: #E6C76F;
-  --gold-ink: #9A7B1E;
+  --gold-soft: #E5C76B;
+  --gold-deep: #B08C40;
+  --gold-faint: rgba(212, 175, 55, 0.2);
+  --gold-line: rgba(212, 175, 55, 0.42);
+
+  /* Light section (off-white editorial break) */
+  --off-white: #F3F1EA;
+  --off-white-ink: #10241A;
+  --off-white-muted: #52655A;
+  --off-white-faint: #879A8C;
+  --off-white-line: rgba(16, 36, 26, 0.14);
+  --gold-on-light: #8A6D1F;
+  --gold-soft-on-light: #A98A2A;
+
+  /* Ink — contextual (flips inside off-white sections) */
+  --ink: #F2F7F0;
+  --ink-strong: #FFFFFF;
+  --text-muted: #B9D2C2;
+  --text-faint: #7FA08C;
+  --heading: var(--ink);
+
+  /* Panels & hairlines (dark context) */
+  --panel: rgba(255, 255, 255, 0.035);
+  --panel-2: rgba(255, 255, 255, 0.06);
+  --panel-3: rgba(255, 255, 255, 0.09);
+  --line: rgba(185, 210, 194, 0.11);
+  --line-emerald: rgba(5, 150, 105, 0.22);
+
+  /* Media — image wells on dark theme */
+  --media-bg: var(--emerald-800);
+  --media-border: rgba(5, 150, 105, 0.16);
 
   /* Typography */
   --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --tracking-caps: 0.22em;
+  --tracking-caps: 0.2em;
 
   /* Spacing & layout */
   --container: 1200px;
   --container-wide: 1440px;
-  --section-gap: clamp(4.5rem, 8vw, 7.5rem);
+  --section-gap: clamp(4.5rem, 8vw, 7rem);
   --section-gap-sm: clamp(3rem, 5vw, 4.5rem);
 
-  /* Radii — soft rounded cards, pill buttons */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-card: 18px;
-  --radius-pill: 999px;
+  /* Radii — print-like. Nearly flush everywhere. */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
 
-  /* Effects — quiet, soft shadows only */
-  --shadow-card: 0 10px 30px rgba(31, 27, 22, 0.06);
-  --shadow-hover: 0 20px 44px rgba(31, 27, 22, 0.12);
+  /* Effects — intentionally flat */
+  --shadow-card: none;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
-  --header-h: 76px;
+  --header-h: 74px;
 }
 
 *,
@@ -87,10 +109,20 @@ body {
   font-size: 16px;
   line-height: 1.75;
   color: var(--ink);
-  background: var(--paper);
+  background: var(--emerald-bg);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 img,
@@ -122,27 +154,27 @@ textarea {
 }
 
 ::selection {
-  background: var(--emerald);
-  color: #fff;
+  background: var(--gold);
+  color: var(--emerald-black);
 }
 
 :focus-visible {
-  outline: 2px solid var(--emerald);
+  outline: 2px solid var(--gold-soft);
   outline-offset: 3px;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--cream-2);
+  background: var(--emerald-950);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--emerald);
+  background: var(--emerald-700);
+  border: 2px solid var(--emerald-950);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--emerald-deep);
+  background: var(--gold);
 }
 
 /* ============================================================
@@ -157,31 +189,26 @@ h5,
 h6 {
   font-family: var(--font-heading);
   font-weight: 600;
-  line-height: 1.18;
+  line-height: 1.14;
   color: var(--heading);
 }
 
 .display-title {
-  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
   font-weight: 700;
-  line-height: 1.05;
-}
-
-.display-title--xl {
-  font-size: clamp(2.8rem, 8vw, 6rem);
 }
 
 .section-title {
-  font-size: clamp(1.7rem, 3.6vw, 2.8rem);
-  font-weight: 700;
-}
-
-.section-title--dark {
+  font-size: clamp(1.85rem, 3.6vw, 2.9rem);
   color: var(--heading);
 }
 
 .card-title {
   font-size: 1.3rem;
+}
+
+.text-gold {
+  color: var(--gold-soft);
 }
 
 /* ============================================================
@@ -202,55 +229,59 @@ h6 {
 .section {
   padding-block: var(--section-gap);
   position: relative;
-  background: transparent;
+  background: var(--emerald-base);
 }
 
 .section--dark {
-  background: var(--emerald-deep);
-  color: rgba(255, 255, 255, 0.82);
+  background: var(--emerald-950);
+  color: rgba(255, 255, 255, 0.86);
 }
 
-.section--dark h1,
 .section--dark h2,
-.section--dark h3,
-.section--dark h4 {
-  color: #fff;
-}
-
-.section--dark .text-muted,
-.section--dark p {
-  color: rgba(255, 255, 255, 0.78);
+.section--dark h3 {
+  color: var(--ink);
 }
 
 .section--light-green {
-  background: var(--emerald-soft);
+  background: var(--emerald-800);
 }
 
+/* Off-white editorial break — flips the ink palette */
 .section--off-white {
-  background: var(--cream);
+  background: var(--off-white);
+  --ink: var(--off-white-ink);
+  --heading: var(--off-white-ink);
+  --text-muted: var(--off-white-muted);
+  --text-faint: var(--off-white-faint);
+  --panel: #FFFFFF;
+  --panel-2: rgba(255, 255, 255, 0.65);
+  --panel-3: rgba(255, 255, 255, 0.85);
+  --line: var(--off-white-line);
+  --line-emerald: rgba(6, 78, 59, 0.2);
+  --gold: var(--gold-deep);
+  --gold-soft: var(--gold-soft-on-light);
+  --gold-faint: rgba(176, 140, 64, 0.18);
+  --gold-line: rgba(176, 140, 64, 0.4);
+  --media-bg: #E7E3D8;
+  --media-border: rgba(16, 36, 26, 0.14);
+  color: var(--text-muted);
 }
 
 /* ============================================================
-   Kickers & section headings (plain)
+   Eyebrows & section headings — simple label + hairline rule
    ============================================================ */
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
+  display: inline-block;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: var(--tracking-caps);
+  letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: var(--gold-ink);
-}
-
-.section--dark .eyebrow {
-  color: var(--gold-soft);
+  color: var(--gold);
 }
 
 .eyebrow--center {
-  justify-content: center;
+  text-align: center;
 }
 
 .section-head {
@@ -263,124 +294,161 @@ h6 {
   text-align: center;
 }
 
-.section-head--center .eyebrow--center {
-  justify-content: center;
-}
-
 .section-head__title {
-  margin-top: 0.9rem;
+  margin-top: 1rem;
 }
 
 .section-head__sub {
-  margin-top: 0.9rem;
-  font-size: 1.02rem;
+  margin-top: 1rem;
+  font-size: clamp(1rem, 1.4vw, 1.08rem);
   color: var(--text-muted);
   line-height: 1.85;
 }
 
-.gold-rule {
-  display: none;
-}
-
 /* ============================================================
-   Buttons — rounded pills
+   Buttons — flat, print-like, no glow
    ============================================================ */
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
-  padding: 0.9rem 1.9rem;
-  font-size: 0.8rem;
+  gap: 0.6rem;
+  padding: 0.95rem 1.9rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  transition: color 0.3s var(--ease-out), background 0.3s var(--ease-out),
-    border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
-}
-
-.btn:hover {
-  transform: translateY(-1px);
+  border-radius: var(--radius-sm);
+  transition: color 0.35s var(--ease-out), background 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out), transform 0.35s var(--ease-out);
 }
 
 .btn--gold {
   background: var(--gold);
-  color: #241E0F;
+  color: var(--emerald-black);
   border-color: var(--gold);
 }
 
 .btn--gold:hover {
-  background: #C7A22E;
-  border-color: #C7A22E;
-}
-
-.btn--emerald {
-  background: var(--emerald);
-  color: #fff;
-  border-color: var(--emerald);
-}
-
-.btn--emerald:hover {
-  background: var(--emerald-deep);
-  border-color: var(--emerald-deep);
+  background: var(--gold-soft);
+  border-color: var(--gold-soft);
+  transform: translateY(-1px);
 }
 
 .btn--outline {
-  background: #fff;
-  border-color: var(--line);
-  color: var(--ink-strong);
+  border-color: var(--gold-line);
+  color: var(--heading);
 }
 
 .btn--outline:hover {
-  border-color: var(--emerald);
-  color: var(--emerald);
-  background: var(--emerald-soft);
+  background: var(--gold);
+  color: var(--emerald-black);
+  border-color: var(--gold);
 }
 
 .btn--outline-gold {
-  border-color: rgba(255, 255, 255, 0.7);
-  color: #fff;
+  border-color: var(--gold-line);
+  color: var(--gold-soft);
 }
 
 .btn--outline-gold:hover {
   background: var(--gold);
+  color: var(--emerald-black);
   border-color: var(--gold);
-  color: #241E0F;
+}
+
+.btn--emerald {
+  background: rgba(5, 150, 105, 0.14);
+  border-color: var(--line-emerald);
+  color: var(--gold-soft);
+}
+
+.btn--emerald:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--emerald-black);
 }
 
 .btn--icon-arrow {
-  font-size: 1rem;
-  transition: transform 0.3s var(--ease-out);
+  font-size: 1.05rem;
+  transition: transform 0.35s var(--ease-out);
 }
 
 .btn:hover .btn--icon-arrow {
   transform: translateX(4px);
 }
 
-/* Plain text link */
+/* Ghost text link — hairline underline */
 .text-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold-ink);
-  text-decoration: underline;
-  text-decoration-color: rgba(154, 123, 30, 0.35);
-  text-underline-offset: 4px;
-  transition: color 0.3s, text-decoration-color 0.3s;
+  color: var(--gold-soft);
+  padding-bottom: 4px;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: left bottom;
+  transition: background-size 0.4s var(--ease-out), color 0.3s;
 }
 
 .text-link:hover {
-  color: var(--emerald);
-  text-decoration-color: currentColor;
+  color: var(--gold);
+  background-size: 100% 1px;
 }
 
 .text-link--dark {
   color: var(--gold-soft);
+}
+
+.text-link--dark:hover {
+  color: var(--gold);
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+
+.hr-gold {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-block: var(--section-gap-sm);
+  border: none;
+  background: var(--gold-line);
+  opacity: 0.7;
+}
+
+.center {
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.mt-sm {
+  margin-top: 0.75rem;
+}
+
+.mt-md {
+  margin-top: 1.5rem;
+}
+
+.mt-lg {
+  margin-top: 2.5rem;
 }
