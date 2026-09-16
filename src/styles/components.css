@@ -2574,6 +2574,14 @@
   background: var(--gold-line);
 }
 
+/* Home — one continuous dark emerald surface, no background variation */
+.home .section,
+.home .section--dark,
+.home .section--off-white,
+.home .section--light-green {
+  background: var(--emerald-bg);
+}
+
 /* Spacing rhythm — tighter sections where the page flows straight through */
 .section--tight {
   padding-block: var(--section-gap-sm);
