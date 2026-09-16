@@ -12,7 +12,7 @@ function fallbackSVG(label = '') {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0C1818"/><stop offset="55%" stop-color="#102020"/><stop offset="100%" stop-color="#102020"/>
+      <stop offset="0%" stop-color="#02281F"/><stop offset="55%" stop-color="#032E22"/><stop offset="100%" stop-color="#032E22"/>
     </linearGradient>
   </defs>
   <rect width="800" height="600" fill="url(#b)"/>

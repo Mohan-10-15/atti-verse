@@ -21,10 +21,10 @@ const esc = (s) =>
 
 function placeholder({ w, h, label = '' }) {
   const fs = Math.min(w, h)
-  const bgA = '#03382A'
-  const bgB = '#064E3B'
+  const bgA = '#032E22'
+  const bgB = '#054635'
   const labelColor = '#E5C76B'
-  const subColor = '#B9D2C2'
+  const subColor = '#C3D6C6'
   const labelSize = Math.round(fs * 0.05)
   const subSize = Math.round(fs * 0.027)
   const labelY = h / 2

@@ -133,14 +133,14 @@ function Contact() {
             </div>
 
             <Reveal dir="up" delay={200}>
-              <div className="mt-lg" style={{ borderLeft: '2px solid var(--emerald)', paddingLeft: '1.2rem' }}>
-                <p style={{ fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: 'var(--emerald)' }}>
+              <div className="mt-lg" style={{ borderLeft: '2px solid var(--gold-line)', paddingLeft: '1.2rem' }}>
+                <p style={{ fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: 'var(--gold-soft)' }}>
                   Contact Details
                 </p>
                 {CONTACT_PUBLISHED ? (
                   <>
                     <p className="mt-sm" style={{ fontSize: '0.92rem', color: 'var(--text-muted)' }}>
-                      Email: <a href={`mailto:${SITE.email}`} style={{ color: 'var(--emerald)' }}>{SITE.email}</a>
+                      Email: <a href={`mailto:${SITE.email}`} style={{ color: 'var(--gold-soft)' }}>{SITE.email}</a>
                     </p>
                     <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)' }}>
                       Phone: {SITE.phone}

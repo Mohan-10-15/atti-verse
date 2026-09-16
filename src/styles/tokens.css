@@ -7,19 +7,19 @@
    ============================================================ */
 
 :root {
-  /* Brand palette — luscious emerald, never near-black */
-  --emerald-black: #02170F;
-  --emerald-950: #022C22;   /* deepest hinge, footer     */
-  --emerald-900: #03382A;   /* deep section surface      */
-  --emerald-800: #064E3B;   /* mid field                 */
-  --emerald-700: #047857;   /* bright field accent       */
-  --emerald-600: #059669;
-  --emerald: #059669;
+  /* Brand palette — deep emerald fields, never near-black */
+  --emerald-black: #01110B;
+  --emerald-950: #02281F;   /* deepest hinge, footer, alt sections */
+  --emerald-900: #032E22;   /* deep section surface / page base    */
+  --emerald-800: #054635;   /* mid field                            */
+  --emerald-700: #06704F;   /* bright field accent                  */
+  --emerald-600: #05835C;
+  --emerald: #05835C;
 
   /* Surfaces */
-  --emerald-bg: #03382A;      /* page base surface   */
-  --emerald-base: #033120;    /* standard section    */
-  --emerald-panel: #04523C;   /* image well / lift   */
+  --emerald-bg: #032E22;      /* page base surface   */
+  --emerald-base: #032922;    /* standard section    */
+  --emerald-panel: #054232;   /* image well / lift   */
 
   /* Luxury gold — accent only. Soft for type, solid for structure */
   --gold: #D4AF37;
@@ -28,28 +28,19 @@
   --gold-faint: rgba(212, 175, 55, 0.2);
   --gold-line: rgba(212, 175, 55, 0.42);
 
-  /* Light section (off-white editorial break) */
-  --off-white: #F3F1EA;
-  --off-white-ink: #10241A;
-  --off-white-muted: #52655A;
-  --off-white-faint: #879A8C;
-  --off-white-line: rgba(16, 36, 26, 0.14);
-  --gold-on-light: #8A6D1F;
-  --gold-soft-on-light: #A98A2A;
-
-  /* Ink — contextual (flips inside off-white sections) */
-  --ink: #F2F7F0;
+  /* Ink — white-led type, gold accents, muted tints for meta */
+  --ink: #F5F7F2;
   --ink-strong: #FFFFFF;
-  --text-muted: #B9D2C2;
-  --text-faint: #7FA08C;
+  --text-muted: #C3D6C6;
+  --text-faint: #8FA69B;
   --heading: var(--ink);
 
   /* Panels & hairlines (dark context) */
   --panel: rgba(255, 255, 255, 0.035);
   --panel-2: rgba(255, 255, 255, 0.06);
   --panel-3: rgba(255, 255, 255, 0.09);
-  --line: rgba(185, 210, 194, 0.11);
-  --line-emerald: rgba(5, 150, 105, 0.22);
+  --line: rgba(197, 214, 200, 0.12);
+  --line-emerald: rgba(5, 131, 92, 0.22);
 
   /* Media — image wells on dark theme */
   --media-bg: var(--emerald-800);
@@ -246,25 +237,11 @@ h6 {
   background: var(--emerald-800);
 }
 
-/* Off-white editorial break — flips the ink palette */
+/* "Off-white" break — now a deeper emerald hinge (dark theme everywhere).
+   Ink stays white-led with gold accents via the root tokens. */
 .section--off-white {
-  background: var(--off-white);
-  --ink: var(--off-white-ink);
-  --heading: var(--off-white-ink);
-  --text-muted: var(--off-white-muted);
-  --text-faint: var(--off-white-faint);
-  --panel: #FFFFFF;
-  --panel-2: rgba(255, 255, 255, 0.65);
-  --panel-3: rgba(255, 255, 255, 0.85);
-  --line: var(--off-white-line);
-  --line-emerald: rgba(6, 78, 59, 0.2);
-  --gold: var(--gold-deep);
-  --gold-soft: var(--gold-soft-on-light);
-  --gold-faint: rgba(176, 140, 64, 0.18);
-  --gold-line: rgba(176, 140, 64, 0.4);
-  --media-bg: #E7E3D8;
-  --media-border: rgba(16, 36, 26, 0.14);
-  color: var(--text-muted);
+  background: var(--emerald-950);
+  color: rgba(255, 255, 255, 0.86);
 }
 
 /* ============================================================
