@@ -2574,11 +2574,13 @@
   background: var(--gold-line);
 }
 
-/* Home — one continuous dark emerald surface, no background variation */
-.home .section,
-.home .section--dark,
-.home .section--off-white,
-.home .section--light-green {
+/* One continuous dark emerald surface site-wide — every section shares
+   the same background, regardless of variant. Image page-headers keep
+   their full-bleed photos and fade into this same tone. */
+.section,
+.section--dark,
+.section--off-white,
+.section--light-green {
   background: var(--emerald-bg);
 }
 

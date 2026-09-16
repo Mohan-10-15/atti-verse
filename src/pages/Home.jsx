@@ -222,7 +222,7 @@ function TeamPreview() {
 
 function Home() {
   return (
-    <div className="home">
+    <>
       <Seo
         title="ATTII VERSE Entertainment & Productions | Entertainment, Events & Media Production"
         description="ATTII VERSE Entertainment & Productions brings together entertainment, event management, media production, creative services and talented creators to build memorable experiences."
@@ -239,7 +239,7 @@ function Home() {
       <TeamPreview />
       <FutureDirection />
       <InstitutionalCTA />
-    </div>
+    </>
   )
 }
 
