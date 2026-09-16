@@ -46,6 +46,8 @@ function Navbar() {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden'
+      const firstLink = document.querySelector('.mobile-menu__link')
+      firstLink?.focus()
     } else {
       document.body.style.overflow = ''
     }

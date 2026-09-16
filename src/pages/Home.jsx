@@ -51,8 +51,9 @@ function Hero() {
         </div>
 
         <div className="hero__title-block hero-line" style={{ animationDelay: '0.25s' }}>
-          <h1 className="hero__title-line hero__title-line--attii">ATTII</h1>
-          <h1 className="hero__title-line hero__title-line--verse">VERSE</h1>
+          <span className="hero__title-line hero__title-line--attii" aria-hidden="true">ATTII</span>
+          <h1 className="visually-hidden">ATTII VERSE</h1>
+          <span className="hero__title-line hero__title-line--verse">VERSE</span>
         </div>
 
         <div className="hero__gold-rule hero-line" style={{ animationDelay: '0.4s' }} />

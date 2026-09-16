@@ -24,7 +24,7 @@ const SERVICES = [
     number: '04',
     title: 'Film & Creative Production',
     capabilities: 'Short Films / Scriptwriting / Direction / Storytelling',
-    to: '/services/production',
+    to: '/services/film-creative',
   },
   {
     number: '05',

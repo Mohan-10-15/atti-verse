@@ -19,15 +19,15 @@ function Footer() {
         <div className="footer__top">
           <div>
             <div className="footer__brand">
-            <div>
-              <Link to="/" className="footer__brand-name">
-                ATTII VERSE
-              </Link>
-              <p className="footer__tagline">Our Talent. Our Verse.</p>
-              <p className="footer__brand-line">{SITE.brandLine}</p>
-              <p className="footer__desc">{SITE.description}</p>
+              <div>
+                <Link to="/" className="footer__brand-name">
+                  ATTII VERSE
+                </Link>
+                <p className="footer__tagline">Our Talent. Our Verse.</p>
+                <p className="footer__brand-line">{SITE.brandLine}</p>
+                <p className="footer__desc">{SITE.description}</p>
+              </div>
             </div>
-          </div>
             <div className="footer__socials">
               {socials.map((s) => (
                 <a

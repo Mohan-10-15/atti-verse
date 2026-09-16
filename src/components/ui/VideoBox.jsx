@@ -33,7 +33,7 @@ function VideoBox({ video, poster, label = 'VIDEO PREVIEW' }) {
         </button>
       )}
       <span className="video-box__label">{label}</span>
-      {playing && <iframe src={url} title={label} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen loading="lazy" />}
+      {playing && <iframe src={url} title={label} allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" />}
     </div>
   )
 }

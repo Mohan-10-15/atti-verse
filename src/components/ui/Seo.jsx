@@ -3,7 +3,8 @@ import { SITE } from '../../config/site.js'
 
 // Lightweight SEO manager: sets document title + meta description
 // per page, preserving global defaults otherwise.
-const OG_IMAGE = `${import.meta.env.BASE_URL}images/og-image.jpg`
+const SITE_URL = 'https://mohan-10-15.github.io/atti-verse'
+const OG_IMAGE = `${SITE_URL}/images/og-image.jpg`
 
 function Seo({
   title,
@@ -34,6 +35,11 @@ function Seo({
     setMeta('name', 'twitter:title', title)
     setMeta('name', 'twitter:description', description)
     setMeta('name', 'twitter:image', image)
+
+    const canonicallink = document.head.querySelector('link[rel="canonical"]')
+    if (canonicallink) {
+      canonicallink.setAttribute('href', `${SITE.url}${path === '/' ? '' : path}`)
+    }
   }, [title, description, image, type, path])
 
   return null

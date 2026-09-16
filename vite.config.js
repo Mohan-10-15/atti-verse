@@ -7,10 +7,17 @@ export default defineConfig({
   server: {
     port: 5173,
     open: true,
-    host: true,
+    host: 'localhost',
   },
   build: {
     target: 'es2018',
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+        },
+      },
+    },
   },
 })

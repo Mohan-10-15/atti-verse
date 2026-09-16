@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Reveal from './../ui/Reveal.jsx'
 import Img from './../ui/Img.jsx'
@@ -21,14 +21,33 @@ function ProductionShowcase() {
     el.scrollBy({ left: dir * step(), behavior: 'smooth' })
   }
 
-  const onWheel = (e) => {
+  useEffect(() => {
     const el = stripRef.current
-    if (!el || el.scrollWidth <= el.clientWidth + 1) return
-    const goHorizontal = Math.abs(e.deltaY) >= Math.abs(e.deltaX)
-    if (!goHorizontal) return
-    e.preventDefault()
-    el.scrollLeft += e.deltaY
-  }
+    if (!el) return
+    const onWheel = (e) => {
+      if (el.scrollWidth <= el.clientWidth + 1) return
+      const goHorizontal = Math.abs(e.deltaY) >= Math.abs(e.deltaX)
+      if (!goHorizontal) return
+      e.preventDefault()
+      el.scrollLeft += e.deltaY
+    }
+    const onKey = (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault()
+        el.scrollBy({ left: -step(), behavior: 'smooth' })
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault()
+        el.scrollBy({ left: step(), behavior: 'smooth' })
+      }
+    }
+    el.addEventListener('wheel', onWheel, { passive: false })
+    el.addEventListener('keydown', onKey)
+    return () => {
+      el.removeEventListener('wheel', onWheel)
+      el.removeEventListener('keydown', onKey)
+    }
+  }, [])
 
   return (
     <section className="section section--dark prod-show">
@@ -77,7 +96,13 @@ function ProductionShowcase() {
         </Reveal>
       </div>
 
-      <div className="prod-strip" ref={stripRef} onWheel={onWheel}>
+      <div
+        className="prod-strip"
+        ref={stripRef}
+        tabIndex="0"
+        role="region"
+        aria-label="Production showcase — use arrow keys to scroll"
+      >
         {PRODUCTIONS.map((prod, i) => (
           <article key={prod.id} className="prod-strip__item">
             <div className="prod-strip__media">

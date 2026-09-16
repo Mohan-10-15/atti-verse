@@ -86,7 +86,7 @@ export const SERVICES = [
   },
   {
     id: 'film-creative',
-    slug: 'production',
+    slug: 'film-creative',
     number: '04',
     title: 'Film & Creative Production',
     tagline: 'Cinematic Storytelling.',
@@ -102,7 +102,7 @@ export const SERVICES = [
       'Cinematic Storytelling',
     ],
     image: IMAGES.services.filmCreative,
-    cta: { label: 'Explore Productions →', to: '/services/production#film-creative' },
+    cta: { label: 'Explore Productions →', to: '/services/film-creative' },
     lens: 'PRODUCTION',
     summary: 'Cinematic storytelling.',
     home: false,

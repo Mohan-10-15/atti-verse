@@ -163,7 +163,7 @@ function Contact() {
           <Reveal dir="up" delay={120}>
             <div className="form-card">
               {sent ? (
-                <div className="form-success">
+                <div className="form-success" role="status" aria-live="polite">
                   <span className="form-success__mark">
                     <Icon name="check" size={26} />
                   </span>
@@ -183,13 +183,34 @@ function Contact() {
                   <div className="form-grid">
                     <div className={`field ${errors.name ? 'is-invalid' : ''}`}>
                       <label htmlFor="c-name">Name *</label>
-                      <input id="c-name" name="name" placeholder="Your name" value={values.name} onChange={set('name')} autoComplete="name" />
-                      {errors.name && <p className="error-text">{errors.name}</p>}
+                      <input
+                        id="c-name"
+                        name="name"
+                        placeholder="Your name"
+                        value={values.name}
+                        onChange={set('name')}
+                        autoComplete="name"
+                        aria-required="true"
+                        aria-invalid={errors.name ? 'true' : 'false'}
+                        aria-describedby={errors.name ? 'c-name-error' : undefined}
+                      />
+                      {errors.name && <p id="c-name-error" className="error-text">{errors.name}</p>}
                     </div>
                     <div className={`field ${errors.email ? 'is-invalid' : ''}`}>
                       <label htmlFor="c-email">Email *</label>
-                      <input id="c-email" name="email" type="email" placeholder="you@email.com" value={values.email} onChange={set('email')} autoComplete="email" />
-                      {errors.email && <p className="error-text">{errors.email}</p>}
+                      <input
+                        id="c-email"
+                        name="email"
+                        type="email"
+                        placeholder="you@email.com"
+                        value={values.email}
+                        onChange={set('email')}
+                        autoComplete="email"
+                        aria-required="true"
+                        aria-invalid={errors.email ? 'true' : 'false'}
+                        aria-describedby={errors.email ? 'c-email-error' : undefined}
+                      />
+                      {errors.email && <p id="c-email-error" className="error-text">{errors.email}</p>}
                     </div>
                     <div className="field">
                       <label htmlFor="c-phone">Phone</label>
@@ -197,11 +218,19 @@ function Contact() {
                     </div>
                     <div className="field">
                       <label htmlFor="c-org">Organization / Institution</label>
-                      <input id="c-org" name="organization" placeholder="Institution / brand / company" value={values.organization} onChange={set('organization')} />
+                      <input id="c-org" name="organization" placeholder="Institution / brand / company" value={values.organization} onChange={set('organization')} autoComplete="organization" />
                     </div>
                     <div className={`field ${errors.projectType ? 'is-invalid' : ''}`}>
                       <label htmlFor="c-type">Project Type *</label>
-                      <select id="c-type" name="projectType" value={values.projectType} onChange={set('projectType')}>
+                      <select
+                        id="c-type"
+                        name="projectType"
+                        value={values.projectType}
+                        onChange={set('projectType')}
+                        aria-required="true"
+                        aria-invalid={errors.projectType ? 'true' : 'false'}
+                        aria-describedby={errors.projectType ? 'c-type-error' : undefined}
+                      >
                         <option value="" disabled>
                           Select a project type
                         </option>
@@ -211,7 +240,7 @@ function Contact() {
                           </option>
                         ))}
                       </select>
-                      {errors.projectType && <p className="error-text">{errors.projectType}</p>}
+                      {errors.projectType && <p id="c-type-error" className="error-text">{errors.projectType}</p>}
                     </div>
                     <div className="field">
                       <label htmlFor="c-date">Preferred Date</label>
@@ -225,8 +254,11 @@ function Contact() {
                         placeholder="Tell us about your event, production or idea..."
                         value={values.message}
                         onChange={set('message')}
+                        aria-required="true"
+                        aria-invalid={errors.message ? 'true' : 'false'}
+                        aria-describedby={errors.message ? 'c-msg-error' : undefined}
                       />
-                      {errors.message && <p className="error-text">{errors.message}</p>}
+                      {errors.message && <p id="c-msg-error" className="error-text">{errors.message}</p>}
                     </div>
                   </div>
                   <button type="submit" className="btn btn--gold" style={{ width: '100%', marginTop: '1.4rem' }}>

@@ -5,22 +5,44 @@ import Img from './Img.jsx'
 function Lightbox({ items, index, onClose, onPrev, onNext }) {
   const item = items[index]
   const touchX = useRef(null)
+  const closeRef = useRef(null)
+  const previousFocusRef = useRef(null)
 
   const handleKey = useCallback(
     (e) => {
       if (e.key === 'Escape') onClose()
       if (e.key === 'ArrowLeft') onPrev()
       if (e.key === 'ArrowRight') onNext()
+      if (e.key === 'Tab') {
+        const focusable = e.currentTarget.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
     },
     [onClose, onPrev, onNext],
   )
 
   useEffect(() => {
+    previousFocusRef.current = document.activeElement
+    closeRef.current?.focus()
+
     document.addEventListener('keydown', handleKey)
     document.body.style.overflow = 'hidden'
+    document.body.style.overscrollBehavior = 'contain'
     return () => {
       document.removeEventListener('keydown', handleKey)
       document.body.style.overflow = ''
+      document.body.style.overscrollBehavior = ''
+      previousFocusRef.current?.focus()
     }
   }, [handleKey])
 
@@ -53,6 +75,7 @@ function Lightbox({ items, index, onClose, onPrev, onNext }) {
         {String(index + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
       </span>
       <button
+        ref={closeRef}
         type="button"
         className="lightbox__btn lightbox__btn--close"
         onClick={onClose}
