@@ -27,7 +27,7 @@ function EventDetail() {
       <PageHeader
         eyebrow="Events"
         crumb={event.title}
-        title={event.title.toUpperCase()}
+        title={event.title}
         subtitle={event.category}
         image={event.image}
       />
@@ -96,12 +96,12 @@ function EventDetail() {
         <div className="container">
           <SectionHeading
             eyebrow="Documentation"
-            title="VISUALS, RECOGNITION & COVERAGE"
+            title="Visuals, recognition & coverage."
             subtitle="Event visuals, certificate and media will appear here as they are documented."
           />
           <div className="related-grid" style={{ marginTop: '2rem' }}>
             <Reveal dir="up">
-              <VideoBox video={event.video} poster={event.image} label="EVENT VIDEO" />
+              <VideoBox video={event.video} poster={event.image} label="Event video" />
             </Reveal>
             <Reveal dir="up" delay={80}>
               <div className="cert-slot">
@@ -148,7 +148,7 @@ function EventDetail() {
       <section className="section">
         <div className="container">
           <div className="section-head-row">
-            <SectionHeading eyebrow="More Events" title="MORE MOMENTS IN THE VERSE" />
+            <SectionHeading eyebrow="More Events" title="More moments in the verse." />
           </div>
           <div className="grid-3" style={{ marginTop: '2.5rem' }}>
             {others.map((e, i) => (
@@ -159,7 +159,7 @@ function EventDetail() {
       </section>
 
       <CTASection
-        title="HAVE AN EVENT IN MIND?"
+        title="Have an event in mind?"
         copy={
           <>
             Planning something worth remembering? Let's create it together — entertainment,

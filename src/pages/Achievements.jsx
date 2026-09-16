@@ -12,12 +12,12 @@ import { PLACEHOLDER } from '../config/site.js'
 const MILESTONE_GROUPS = [
   {
     eyebrow: 'Foundation',
-    title: 'ORGANIZATIONAL MILESTONES',
+    title: 'Organizational milestones',
     items: ORGANIZATIONAL_MILESTONES,
   },
   {
     eyebrow: 'Creativity & Events',
-    title: 'CREATIVE & EVENT MILESTONES',
+    title: 'Creative & event milestones',
     items: CREATIVE_MILESTONES,
   },
 ]
@@ -29,7 +29,7 @@ function Timeline() {
         <SectionHeading
           center
           eyebrow="Milestones"
-          title="EARNED MILESTONES, TIMELINE BY TIMELINE"
+          title="Earned milestones, one by one."
           subtitle="Every milestone below is verified. Nothing here is invented — new records are added as they are earned."
         />
         <div className="timeline" style={{ marginTop: '3rem' }}>
@@ -64,7 +64,7 @@ function Certificates() {
         <SectionHeading
           center
           eyebrow="Documents"
-          title="CERTIFICATES & RECOGNITION"
+          title="Certificates & recognition."
           subtitle="Participation recognition and certifications are preserved here as they are earned."
         />
         <div className="related-grid" style={{ marginTop: '2rem' }}>
@@ -102,7 +102,7 @@ function Achievements() {
       <PageHeader
         eyebrow="Achievements"
         crumb="Achievements"
-        title="MILESTONES & RECOGNITION"
+        title="Milestones & recognition."
         subtitle="Every milestone shown here is earned and verified. New records are added as we continue to build."
       />
 

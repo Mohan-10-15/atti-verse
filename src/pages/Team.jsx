@@ -14,7 +14,7 @@ function Leadership() {
         <SectionHeading
           center
           eyebrow="Leadership"
-          title="THE DIRECTION OF THE VERSE"
+          title="The direction of the verse."
           subtitle="Every performance, production and event is powered by people who bring their own talent, creativity and commitment."
         />
         <div className="grid-4">
@@ -31,13 +31,13 @@ function Responsibilities() {
   return (
     <section className="section section--off-white">
       <div className="container">
-        <SectionHeading center eyebrow="Leadership Roles" title="WHAT OUR LEADERS OWN" />
+        <SectionHeading center eyebrow="Leadership Roles" title="What our leaders own." />
         <div className="grid-4">
           {LEADERSHIP.map((member, i) => (
             <Reveal key={member.id} dir="up" delay={(i % 4) * 90}>
               <article className="milestone-card" style={{ minHeight: '100%' }}>
                 <h3 className="milestone-card__title">{member.name}</h3>
-                <p className="milestone-card__note" style={{ color: 'var(--gold)', fontWeight: 700 }}>
+                <p className="milestone-card__note" style={{ color: 'var(--emerald)', fontWeight: 700 }}>
                   {member.role}
                 </p>
                 <ul className="check-list" style={{ marginTop: '0.9rem', gridTemplateColumns: '1fr' }}>
@@ -63,7 +63,7 @@ function Categories() {
         <SectionHeading
           center
           eyebrow="The Collective"
-          title="ROLES ACROSS THE VERSE"
+          title="Roles across the verse."
           subtitle="Member cards below are placeholders — photos and profiles will be added as the team is documented."
         />
         <div className="grid-3" style={{ rowGap: '2.5rem' }}>
@@ -104,7 +104,7 @@ function Team() {
       <PageHeader
         eyebrow="Team"
         crumb="Team"
-        title="THE PEOPLE BEHIND ATTII VERSE"
+        title="The people behind ATTII VERSE"
         subtitle="Every performance, production and event is powered by people who bring their own talent, creativity and commitment."
       />
       <Leadership />

@@ -54,11 +54,9 @@ function ProductionShowcase() {
       <div className="container">
         <div className="prod-show__head">
           <Reveal dir="up">
-            <span className="eyebrow" style={{ color: 'var(--gold-soft)' }}>
-              06 — From Concept to Stage
-            </span>
+            <span className="eyebrow">What we produce</span>
             <h2 className="section-title" style={{ marginTop: '1.1rem' }}>
-              FROM CONCEPT TO <span className="text-gold">FINAL FRAME.</span>
+              From concept to final frame.
             </h2>
           </Reveal>
           <Reveal dir="up" delay={150}>
@@ -82,7 +80,7 @@ function ProductionShowcase() {
                 </button>
               </div>
               <Link to="/productions" className="text-link text-link--dark">
-                View Productions →
+                View productions
               </Link>
             </div>
           </Reveal>
@@ -107,7 +105,6 @@ function ProductionShowcase() {
           <article key={prod.id} className="prod-strip__item">
             <div className="prod-strip__media">
               <Img src={prod.image} alt={`${prod.title} — media & production`} />
-              <span className="prod-strip__index">{String(i + 1).padStart(2, '0')}</span>
             </div>
             <div className="prod-strip__body">
               <h3 className="prod-strip__title">{prod.title}</h3>
@@ -116,7 +113,6 @@ function ProductionShowcase() {
           </article>
         ))}
       </div>
-      <p className="prod-show__hint">SCROLL TO EXPLORE →</p>
     </section>
   )
 }

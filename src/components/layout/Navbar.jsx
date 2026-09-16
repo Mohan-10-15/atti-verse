@@ -106,11 +106,10 @@ function Navbar() {
                 <NavLink
                   to={link.to}
                   end={link.to === '/'}
-                  className={({ isActive }) => `mobile-menu__link ${isActive ? 'text-gold' : ''}`}
+                  className={({ isActive }) => `mobile-menu__link ${isActive ? 'is-active' : ''}`}
                   style={{ transitionDelay: open ? `${i * 45}ms` : '0ms' }}
                 >
                   <span>{link.label}</span>
-                  <small>0{i + 1}</small>
                 </NavLink>
               </li>
             ))}

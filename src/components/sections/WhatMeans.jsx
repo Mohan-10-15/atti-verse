@@ -10,7 +10,7 @@ function WhatMeans() {
         <SectionHeading
           center
           eyebrow="The Name"
-          title="WHAT ATTII VERSE MEANS"
+          title="What ATTII VERSE means"
           subtitle="A name built from the values the organization lives by."
         />
 
@@ -42,9 +42,8 @@ function WhatMeans() {
                 <span className="meaning__note">The universe we are building.</span>
               </div>
               <ul className="meaning__list">
-                {NAME_MEANING.verse.map((v, i) => (
+                {NAME_MEANING.verse.map((v) => (
                   <li key={v} className="meaning__item">
-                    <span className="meaning__letter">{String(i + 1).padStart(2, '0')}</span>
                     <div>
                       <strong>{v}</strong>
                     </div>

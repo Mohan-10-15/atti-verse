@@ -100,9 +100,7 @@ function Footer() {
           <p>
             © {year} {SITE.fullName}. All Rights Reserved.
           </p>
-          <p>
-            Crafted with <span aria-hidden="true" style={{ color: 'var(--gold)' }}>✦</span> in the ATTII VERSE ecosystem.
-          </p>
+          <p>Crafted in the ATTII VERSE ecosystem.</p>
         </div>
       </div>
     </footer>

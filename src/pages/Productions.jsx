@@ -17,7 +17,7 @@ function Productions() {
       <PageHeader
         eyebrow="Productions"
         crumb="Productions"
-        title="MEDIA & PRODUCTIONS"
+        title="Media & productions"
         subtitle="From a single frame to a complete production, we create visual content designed to tell stories and capture experiences."
       />
 
@@ -39,7 +39,6 @@ function Productions() {
                 </Reveal>
                 <div>
                   <Reveal dir="up">
-                    <span className="feature__num">PRODUCTION — {String(i + 1).padStart(2, '0')}</span>
                     <h2 className="feature__title">{prod.title}</h2>
                   </Reveal>
                   <Reveal dir="up" delay={100}>
@@ -56,7 +55,7 @@ function Productions() {
                   </Reveal>
                   <Reveal dir="up" delay={260}>
                     <div className="mt-md">
-                      <VideoBox video={prod.video} poster={prod.image} label={`${prod.title.toUpperCase()} — PREVIEW`} />
+                      <VideoBox video={prod.video} poster={prod.image} label={`${prod.title} preview`} />
                     </div>
                   </Reveal>
                 </div>

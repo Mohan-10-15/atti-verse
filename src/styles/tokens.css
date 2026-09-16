@@ -1,59 +1,38 @@
 /* ============================================================
    ATTII VERSE — Design Tokens, Reset & Base
-   Premium editorial system v2:
-   True emerald fields + luminous gold accents, Playfair Display
-   + Inter, flat print-like surfaces, hairline rules, numbered
-   editorial sections. Two light (off-white) breaks keep the dark
-   page from reading as flat.
+   Plain perfected: light paper surfaces, emerald brand primary,
+   gold accent only. Manrope body + Playfair Display headings.
+   No glows, no gradients, no decorative machinery.
    ============================================================ */
 
 :root {
-  /* Brand palette — luscious emerald, never near-black */
-  --emerald-black: #02170F;
-  --emerald-950: #022C22;   /* deepest hinge, footer    */
-  --emerald-900: #03382A;   /* deep section surface     */
-  --emerald-800: #064E3B;   /* mid field                */
-  --emerald-700: #047857;   /* bright field accent      */
-  --emerald-600: #059669;
+  /* Surfaces — paper white, warm cream bands */
+  --paper: #FFFFFF;
+  --cream: #FAF7F2;
+  --cream-2: #F3EFE7;
 
-  /* Surfaces */
-  --emerald-bg: #03382A;      /* page base surface   */
-  --emerald-base: #033120;    /* standard section    */
-  --emerald-panel: #04523C;   /* image well / lift   */
+  /* Ink */
+  --ink: #333333;
+  --ink-strong: #1F1B16;
+  --text-muted: #6B655C;
+  --text-faint: #9A9489;
+  --heading: var(--ink-strong);
 
-  /* Luxury Gold — accent only. Soft for type, solid for structure */
+  /* Hairlines & panels */
+  --line: rgba(31, 27, 22, 0.1);
+  --line-soft: rgba(31, 27, 22, 0.06);
+
+  /* Brand — emerald primary, gold accent */
+  --emerald: #0E5A37;
+  --emerald-deep: #0B3B24;
+  --emerald-soft: #ECF3EE;
   --gold: #D4AF37;
-  --gold-soft: #E5C76B;
-  --gold-deep: #B08C40;
-  --gold-faint: rgba(212, 175, 55, 0.2);
-  --gold-line: rgba(212, 175, 55, 0.42);
-  --gold-glow: rgba(229, 199, 107, 0.12);
-
-  /* Light section (off-white) */
-  --off-white: #F3F1EA;
-  --off-white-ink: #10241A;
-  --off-white-muted: #52655A;
-  --off-white-faint: #879a8c;
-  --off-white-line: rgba(16, 36, 26, 0.14);
-  --gold-on-light: #8A6D1F;
-  --gold-soft-on-light: #A98A2A;
-
-  /* Ink (contextual — flips inside off-white sections) */
-  --ink: #F2F7F0;
-  --text-muted: #B9D2C2;
-  --text-faint: #7FA08C;
-  --heading: var(--ink);
-
-  /* Surfaces & hairlines (dark context) */
-  --panel: rgba(255, 255, 255, 0.035);
-  --panel-2: rgba(255, 255, 255, 0.06);
-  --line: rgba(185, 210, 194, 0.11);
-  --line-emerald: rgba(5, 150, 105, 0.22);
+  --gold-soft: #E6C76F;
+  --gold-ink: #9A7B1E;
 
   /* Typography */
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --tracking-display: 0.01em;
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --tracking-caps: 0.22em;
 
   /* Spacing & layout */
@@ -62,17 +41,18 @@
   --section-gap: clamp(4.5rem, 8vw, 7.5rem);
   --section-gap-sm: clamp(3rem, 5vw, 4.5rem);
 
-  /* Radii — print-like. Nearly flush everywhere. */
-  --radius-sm: 3px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
+  /* Radii — soft rounded cards, pill buttons */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-card: 18px;
+  --radius-pill: 999px;
 
-  /* Effects */
-  --shadow-soft: none;
-  --shadow-gold: none;
+  /* Effects — quiet, soft shadows only */
+  --shadow-card: 0 10px 30px rgba(31, 27, 22, 0.06);
+  --shadow-hover: 0 20px 44px rgba(31, 27, 22, 0.12);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
-  --header-h: 72px;
+  --header-h: 76px;
 }
 
 *,
@@ -107,11 +87,7 @@ body {
   font-size: 16px;
   line-height: 1.75;
   color: var(--ink);
-  background:
-    radial-gradient(120% 70% at 88% -6%, var(--gold-glow), transparent 52%),
-    radial-gradient(120% 90% at 4% 110%, rgba(5, 150, 105, 0.12), transparent 55%),
-    linear-gradient(180deg, var(--emerald-800) 0%, var(--emerald-bg) 34%);
-  background-attachment: fixed;
+  background: var(--paper);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -146,12 +122,12 @@ textarea {
 }
 
 ::selection {
-  background: var(--gold);
-  color: var(--emerald-black);
+  background: var(--emerald);
+  color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--gold-soft);
+  outline: 2px solid var(--emerald);
   outline-offset: 3px;
 }
 
@@ -160,14 +136,13 @@ textarea {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--emerald-950);
+  background: var(--cream-2);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--emerald-700);
-  border: 2px solid var(--emerald-950);
+  background: var(--emerald);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold);
+  background: var(--emerald-deep);
 }
 
 /* ============================================================
@@ -180,43 +155,33 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-weight: 600;
-  line-height: 1.12;
+  line-height: 1.18;
   color: var(--heading);
 }
 
 .display-title {
-  font-size: clamp(2.6rem, 6.5vw, 5rem);
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
   font-weight: 700;
-  letter-spacing: var(--tracking-display);
+  line-height: 1.05;
 }
 
 .display-title--xl {
-  font-size: clamp(3rem, 8vw, 7rem);
-  letter-spacing: 0.08em;
+  font-size: clamp(2.8rem, 8vw, 6rem);
 }
 
 .section-title {
-  font-size: clamp(1.8rem, 3.6vw, 3rem);
-  letter-spacing: var(--tracking-display);
+  font-size: clamp(1.7rem, 3.6vw, 2.8rem);
+  font-weight: 700;
 }
 
 .section-title--dark {
-  color: var(--ink);
+  color: var(--heading);
 }
 
 .card-title {
-  font-size: 1.35rem;
-}
-
-/* Gold text — solid, editorial */
-.text-gold {
-  color: var(--gold-soft);
-}
-
-.text-gold-solid {
-  color: var(--gold);
+  font-size: 1.3rem;
 }
 
 /* ============================================================
@@ -237,93 +202,60 @@ h6 {
 .section {
   padding-block: var(--section-gap);
   position: relative;
-  background: var(--emerald-base);
-}
-
-.section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(90% 60% at 92% -4%, var(--gold-glow), transparent 55%);
-  pointer-events: none;
-}
-
-.section > .container {
-  position: relative;
-  z-index: 1;
+  background: transparent;
 }
 
 .section--dark {
-  background: var(--emerald-950);
-  color: rgba(255, 255, 255, 0.86);
+  background: var(--emerald-deep);
+  color: rgba(255, 255, 255, 0.82);
 }
 
+.section--dark h1,
 .section--dark h2,
-.section--dark h3 {
-  color: var(--ink);
+.section--dark h3,
+.section--dark h4 {
+  color: #fff;
+}
+
+.section--dark .text-muted,
+.section--dark p {
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .section--light-green {
-  background: linear-gradient(180deg, #01382A, #033928);
+  background: var(--emerald-soft);
 }
 
-/* Off-white editorial break — flips the ink palette */
 .section--off-white {
-  background:
-    radial-gradient(90% 70% at 8% -8%, rgba(212, 175, 55, 0.08), transparent 55%),
-    var(--off-white);
-  --ink: var(--off-white-ink);
-  --heading: var(--off-white-ink);
-  --text-muted: var(--off-white-muted);
-  --text-faint: var(--off-white-faint);
-  --panel: #FFFFFF;
-  --panel-2: rgba(255, 255, 255, 0.65);
-  --line: var(--off-white-line);
-  --line-emerald: rgba(6, 78, 59, 0.2);
-  --gold: var(--gold-deep);
-  --gold-soft: var(--gold-soft-on-light);
-  --gold-faint: rgba(176, 140, 64, 0.2);
-  --gold-line: rgba(176, 140, 64, 0.4);
-  --gold-glow: rgba(176, 140, 64, 0.1);
-  color: var(--text-muted);
-}
-
-.section--off-white::before {
-  display: none;
+  background: var(--cream);
 }
 
 /* ============================================================
-   Eyebrows & section headings (editorial)
+   Kickers & section headings (plain)
    ============================================================ */
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.34em;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 
-.eyebrow::before {
-  content: '';
-  width: 34px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, currentColor);
+.section--dark .eyebrow {
+  color: var(--gold-soft);
 }
 
-.eyebrow--center::after {
-  content: '';
-  width: 34px;
-  height: 1px;
-  background: linear-gradient(90deg, currentColor, transparent);
+.eyebrow--center {
+  justify-content: center;
 }
 
 .section-head {
   max-width: 780px;
-  margin-bottom: clamp(2.2rem, 4.5vw, 3.5rem);
+  margin-bottom: clamp(2rem, 4.5vw, 3.2rem);
 }
 
 .section-head--center {
@@ -336,130 +268,119 @@ h6 {
 }
 
 .section-head__title {
-  margin-top: 1.1rem;
+  margin-top: 0.9rem;
 }
 
 .section-head__sub {
-  margin-top: 1rem;
-  font-size: clamp(1rem, 1.4vw, 1.08rem);
+  margin-top: 0.9rem;
+  font-size: 1.02rem;
   color: var(--text-muted);
   line-height: 1.85;
 }
 
 .gold-rule {
-  display: block;
-  width: 64px;
-  height: 1px;
-  margin-top: 1.4rem;
-  background: var(--gold);
-}
-
-.section-head--center .gold-rule {
-  margin-inline: auto;
+  display: none;
 }
 
 /* ============================================================
-   Buttons — two types, print-like, no glow
+   Buttons — rounded pills
    ============================================================ */
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
-  padding: 0.95rem 1.9rem;
-  font-size: 0.76rem;
+  gap: 0.55rem;
+  padding: 0.9rem 1.9rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   border: 1px solid transparent;
-  border-radius: var(--radius-sm);
-  transition: color 0.35s var(--ease-out), background 0.35s var(--ease-out),
-    border-color 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+  border-radius: var(--radius-pill);
+  transition: color 0.3s var(--ease-out), background 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
 }
 
 .btn--gold {
   background: var(--gold);
-  color: var(--emerald-black);
+  color: #241E0F;
   border-color: var(--gold);
 }
 
 .btn--gold:hover {
-  background: var(--gold-soft);
-  border-color: var(--gold-soft);
-  transform: translateY(-1px);
+  background: #C7A22E;
+  border-color: #C7A22E;
+}
+
+.btn--emerald {
+  background: var(--emerald);
+  color: #fff;
+  border-color: var(--emerald);
+}
+
+.btn--emerald:hover {
+  background: var(--emerald-deep);
+  border-color: var(--emerald-deep);
 }
 
 .btn--outline {
-  border-color: var(--gold-line);
-  color: var(--heading);
+  background: #fff;
+  border-color: var(--line);
+  color: var(--ink-strong);
 }
 
 .btn--outline:hover {
-  background: var(--gold);
-  color: var(--emerald-black);
-  border-color: var(--gold);
+  border-color: var(--emerald);
+  color: var(--emerald);
+  background: var(--emerald-soft);
 }
 
 .btn--outline-gold {
-  border-color: var(--gold-line);
-  color: var(--gold-soft);
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #fff;
 }
 
 .btn--outline-gold:hover {
   background: var(--gold);
-  color: var(--emerald-black);
   border-color: var(--gold);
-}
-
-.btn--emerald {
-  background: rgba(5, 150, 105, 0.14);
-  border-color: var(--line-emerald);
-  color: var(--gold-soft);
-}
-
-.btn--emerald:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--emerald-black);
+  color: #241E0F;
 }
 
 .btn--icon-arrow {
-  font-size: 1.05rem;
-  transition: transform 0.35s var(--ease-out);
+  font-size: 1rem;
+  transition: transform 0.3s var(--ease-out);
 }
 
 .btn:hover .btn--icon-arrow {
   transform: translateX(4px);
 }
 
-/* Ghost text link — per the brief, a hairline underline */
+/* Plain text link */
 .text-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.16em;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold-soft);
-  padding-bottom: 4px;
-  background-image: linear-gradient(currentColor, currentColor);
-  background-repeat: no-repeat;
-  background-size: 0% 1px;
-  background-position: left bottom;
-  transition: background-size 0.4s var(--ease-out), color 0.3s;
+  color: var(--gold-ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(154, 123, 30, 0.35);
+  text-underline-offset: 4px;
+  transition: color 0.3s, text-decoration-color 0.3s;
 }
 
 .text-link:hover {
-  color: var(--gold);
-  background-size: 100% 1px;
+  color: var(--emerald);
+  text-decoration-color: currentColor;
 }
 
 .text-link--dark {
   color: var(--gold-soft);
-}
-
-.text-link--dark:hover {
-  color: var(--gold);
 }

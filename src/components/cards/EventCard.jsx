@@ -33,7 +33,7 @@ function EventCard({ event, index = 0 }) {
             <p className="event-card__desc">{event.description}</p>
             <div className="event-card__cta">
               <span className="text-link">
-                {event.status === 'verified' ? 'View Event Details' : 'Stay Tuned'} →
+                {event.status === 'verified' ? 'View Event Details' : 'Stay Tuned'}
               </span>
             </div>
           </div>

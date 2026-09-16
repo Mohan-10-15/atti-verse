@@ -98,7 +98,7 @@ function Contact() {
       <PageHeader
         eyebrow="Contact"
         crumb="Contact"
-        title="LET'S WORK TOGETHER"
+        title="Let's work together."
         subtitle="Have an event, production, creative project or collaboration in mind? Tell us what you're building. Let's create something memorable together."
       />
 
@@ -110,7 +110,7 @@ function Contact() {
             <Reveal dir="up">
               <span className="eyebrow">How To Reach Us</span>
               <h2 className="section-title" style={{ marginTop: '0.8rem' }}>
-                THE RIGHT DOOR FOR EVERY PROJECT
+                The right door for every project.
               </h2>
             </Reveal>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem' }}>
@@ -133,14 +133,14 @@ function Contact() {
             </div>
 
             <Reveal dir="up" delay={200}>
-              <div className="mt-lg" style={{ borderLeft: '2px solid var(--gold)', paddingLeft: '1.2rem' }}>
-                <p style={{ fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: 'var(--gold-soft)' }}>
+              <div className="mt-lg" style={{ borderLeft: '2px solid var(--emerald)', paddingLeft: '1.2rem' }}>
+                <p style={{ fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, color: 'var(--emerald)' }}>
                   Contact Details
                 </p>
                 {CONTACT_PUBLISHED ? (
                   <>
                     <p className="mt-sm" style={{ fontSize: '0.92rem', color: 'var(--text-muted)' }}>
-                      Email: <a href={`mailto:${SITE.email}`} style={{ color: 'var(--gold)' }}>{SITE.email}</a>
+                      Email: <a href={`mailto:${SITE.email}`} style={{ color: 'var(--emerald)' }}>{SITE.email}</a>
                     </p>
                     <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)' }}>
                       Phone: {SITE.phone}
@@ -168,7 +168,7 @@ function Contact() {
                     <Icon name="check" size={26} />
                   </span>
                   <h3 className="section-title" style={{ fontSize: '1.6rem' }}>
-                    ENQUIRY RECEIVED
+                    Enquiry received.
                   </h3>
                   <p style={{ color: 'var(--text-muted)', maxWidth: '40ch' }}>
                     Thank you for reaching out. Your enquiry has been recorded and our team will respond
@@ -276,7 +276,7 @@ function Contact() {
       </section>
 
       <CTASection
-        title="READY WHEN YOU ARE."
+        title="Ready when you are."
         copy={
           <>
             No matter where your idea starts, ATTII VERSE can help take it to the stage, the screen —

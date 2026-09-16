@@ -12,7 +12,7 @@ function LegalFoundation() {
           center
           onDark
           eyebrow="Professional Foundation"
-          title="BUILT ON A PROFESSIONAL FOUNDATION."
+          title="Built on a professional foundation."
           subtitle="The verified registrations and governance that back the creative work."
         />
         <div className="legal" style={{ marginTop: '2rem' }}>

@@ -11,7 +11,7 @@ function WhyWorkWithUs() {
         <SectionHeading
           center
           eyebrow="Why Work With Us"
-          title="BUILT TO WORK WITH."
+          title="Built to work with."
           subtitle="The qualities institutions, brands and partners can rely on."
         />
         <div className="pillars">

@@ -11,7 +11,7 @@ function embedUrl(video) {
   return video
 }
 
-function VideoBox({ video, poster, label = 'VIDEO PREVIEW' }) {
+function VideoBox({ video, poster, label = 'Video preview' }) {
   const [playing, setPlaying] = useState(false)
   const url = embedUrl(video)
 
@@ -19,7 +19,7 @@ function VideoBox({ video, poster, label = 'VIDEO PREVIEW' }) {
     return (
       <div className="video-box">
         {poster && <Img src={poster} alt={label} className="video-box__poster" style={{ position: 'absolute', inset: 0 }} />}
-        <span className="video-box__label">{label} — TO BE ADDED</span>
+        <span className="video-box__label">{label} — To Be Added</span>
       </div>
     )
   }

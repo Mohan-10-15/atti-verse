@@ -40,7 +40,7 @@ function VerifiedEventDetail({ event }) {
           </Reveal>
           <Reveal dir="up" delay={280}>
             <div className="grid-2" style={{ marginTop: '1.8rem', gap: '1rem', gridTemplateColumns: '1fr 1fr', alignItems: 'stretch' }}>
-              <VideoBox video={event.video} poster={event.image} label="EVENT VIDEO — PLACEHOLDER" />
+              <VideoBox video={event.video} poster={event.image} label="Event video" />
               <div className="cert-slot">
                 <Icon name="document" size={22} />
                 <span>
@@ -72,7 +72,7 @@ function Events() {
       <PageHeader
         eyebrow="Events"
         crumb="Events"
-        title="EVENTS & EXPERIENCES"
+        title="Events & experiences"
         subtitle="From cultural celebrations and performances to event coordination and execution, ATTII VERSE creates and contributes to experiences that bring people together."
       />
 
@@ -85,7 +85,7 @@ function Events() {
           <SectionHeading
             center
             eyebrow="More Moments"
-            title="EVENTS IN THE MAKING"
+            title="Events in the making."
             subtitle="Placeholder cards for events being documented. Verified details will replace them as they arrive."
           />
           <div className="grid-3">

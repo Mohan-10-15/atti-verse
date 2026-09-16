@@ -20,7 +20,6 @@ function ServiceFeature({ service, index }) {
           </Reveal>
           <div>
             <Reveal dir="up">
-              <span className="feature__num">{service.number} — SERVICES</span>
               <h2 className="feature__title">{service.title}</h2>
               <p className="feature__tagline">{service.tagline}</p>
             </Reveal>
@@ -44,12 +43,12 @@ function ServiceFeature({ service, index }) {
             {service.portfolio?.length > 0 && (
               <Reveal dir="up" delay={340}>
                 <div className="feature__portfolio" style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', marginTop: '1.6rem' }}>
-                  <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--gold)' }}>
+                  <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--text-faint)' }}>
                     Portfolio Examples
                   </span>
                   {service.portfolio.map((p) => (
                     <div key={p.title} style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                      ✦ {p.title}
+                      {p.title}
                       <span style={{ color: 'var(--text-faint)', marginLeft: '0.5rem', fontSize: '0.8rem' }}>{p.year}</span>
                     </div>
                   ))}
@@ -74,7 +73,7 @@ function Services() {
       <PageHeader
         eyebrow="Services"
         crumb="Services"
-        title="WHAT WE DO"
+        title="What we do"
         subtitle="One creative ecosystem. Multiple possibilities — from stage to screen, from concept to execution."
       />
 
@@ -83,7 +82,7 @@ function Services() {
           <SectionHeading
             center
             eyebrow="Capabilities"
-            title="FULL-STACK CREATIVE PRODUCTION"
+            title="Full-stack creative production."
             subtitle="Six disciplines working together to plan, perform, produce and deliver."
           />
         </div>

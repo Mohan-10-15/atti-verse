@@ -12,21 +12,20 @@ function InstitutionalCTA() {
           <div className="institutional">
             <div className="institutional__text">
               <span className="eyebrow">For Colleges &amp; Institutions</span>
-              <h2 className="institutional__title">PLANNING AN INSTITUTIONAL EVENT?</h2>
+              <h2 className="institutional__title">Planning an institutional event?</h2>
               <p className="institutional__desc">
                 From cultural celebrations and college fests to entertainment, performances and
                 complete production support — ATTII VERSE can plan, coordinate and deliver.
               </p>
               <Link to="/contact" className="btn btn--gold institutional__cta">
-                <span>DISCUSS YOUR EVENT</span>
+                <span>Discuss your event</span>
               </Link>
             </div>
             <ul className="institutional__points">
-              {INSTITUTIONAL_POINTS.map((point, i) => (
+              {INSTITUTIONAL_POINTS.map((point) => (
                 <li key={point} className="institutional__point">
                   <Icon name="check" size={15} />
                   <span>{point}</span>
-                  <span className="institutional__idx">{String(i + 1).padStart(2, '0')}</span>
                 </li>
               ))}
             </ul>

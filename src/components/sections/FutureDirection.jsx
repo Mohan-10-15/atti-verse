@@ -4,7 +4,7 @@ import SectionHeading from './../ui/SectionHeading.jsx'
 import { FUTURE_DIRECTION, FUTURE_DIRECTION_NOTE } from '../../data/organization.js'
 
 // Future direction — "What's Next".
-function FutureDirection({ eyebrow = '09 — The Next Verse' }) {
+function FutureDirection({ eyebrow = 'The next verse' }) {
   return (
     <section className="section section--dark">
       <div className="container">
@@ -13,11 +13,7 @@ function FutureDirection({ eyebrow = '09 — The Next Verse' }) {
             <SectionHeading
               onDark
               eyebrow={eyebrow}
-              title={
-                <>
-                  <span className="text-gold">BUILT FOR</span> WHAT'S AHEAD.
-                </>
-              }
+              title="Built for what's ahead."
             />
             <Reveal dir="up" delay={120}>
               <p style={{ color: 'rgba(255,255,255,0.82)' }}>
@@ -31,16 +27,15 @@ function FutureDirection({ eyebrow = '09 — The Next Verse' }) {
             </Reveal>
             <Reveal dir="up" delay={320}>
               <Link to="/upcoming" className="btn btn--gold mt-lg">
-                <span>STAY CONNECTED</span>
+                <span>Stay connected</span>
               </Link>
             </Reveal>
           </div>
 
           <div className="future__list">
-            {FUTURE_DIRECTION.map((item, i) => (
-              <Reveal key={item} dir="left" delay={i * 70}>
+            {FUTURE_DIRECTION.map((item) => (
+              <Reveal key={item} dir="left">
                 <div className="future__row">
-                  <span className="future__idx">{String(i + 1).padStart(2, '0')}</span>
                   <span className="future__item">{item}</span>
                 </div>
               </Reveal>

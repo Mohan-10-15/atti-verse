@@ -4,7 +4,7 @@ import Img from './Img.jsx'
 
 function PageHeader({ eyebrow, title, subtitle, crumb, image }) {
   return (
-    <header className="page-header">
+    <header className={`page-header ${image ? 'page-header--image' : ''}`}>
       {image ? (
         <>
           <Img src={image} alt="" className="page-header__bg" priority />

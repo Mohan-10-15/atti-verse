@@ -25,9 +25,9 @@ function ServiceDetail() {
         path={`/services/${slug}`}
       />
       <PageHeader
-        eyebrow={service.number + ' — Services'}
+        eyebrow="Services"
         crumb={service.title}
-        title={service.title.toUpperCase()}
+        title={service.title}
         subtitle={service.tagline}
       />
 
@@ -68,7 +68,7 @@ function ServiceDetail() {
       <section className="section section--off-white">
         <div className="container grid-2">
           <div>
-            <SectionHeading eyebrow="Capabilities" title={<>WHAT THIS DIVISION <span className="text-gold">HANDLES</span></>} />
+            <SectionHeading eyebrow="Capabilities" title="What this division handles." />
             <Reveal dir="up" delay={120}>
               <p style={{ color: 'var(--text-muted)' }}>
                 The specific skills and services within {service.title.toLowerCase()}. Project
@@ -91,7 +91,7 @@ function ServiceDetail() {
         <div className="container">
           <SectionHeading
             eyebrow="Relevant Work"
-            title="PROJECT EXAMPLES"
+            title="Project examples."
             subtitle="Documented work within this service. New projects are added as they are verified."
           />
           {service.portfolio?.length > 0 ? (
@@ -128,7 +128,7 @@ function ServiceDetail() {
             center
             onDark
             eyebrow="Process"
-            title="HOW WE WORK"
+            title="How we work."
           />
           <div className="related-grid" style={{ marginTop: '2rem' }}>
             {PROCESS_STEPS.map((step, i) => (
@@ -152,7 +152,7 @@ function ServiceDetail() {
           <SectionHeading
             center
             eyebrow="Gallery"
-            title="VISUAL MOMENTS"
+            title="Visual moments."
             subtitle="Seasonal visuals are added here as they are captured."
           />
           <div className="related-grid" style={{ marginTop: '2rem' }}>
@@ -172,7 +172,7 @@ function ServiceDetail() {
         <div className="container">
           <SectionHeading
             eyebrow="Explore"
-            title="OTHER SERVICES"
+            title="Other services."
           />
           <div className="related-grid" style={{ marginTop: '2rem' }}>
             {SERVICES.filter((s) => s.slug !== slug).map((s, i) => (
@@ -182,10 +182,9 @@ function ServiceDetail() {
                     <Img src={s.image} alt={s.title} />
                   </div>
                   <div className="project-card__body">
-                    <span className="project-card__cat">{s.number} — SERVICE</span>
                     <h3 className="project-card__title">{s.title}</h3>
                     <div className="project-card__footer">
-                      <span>Explore →</span>
+                      <span>Explore</span>
                     </div>
                   </div>
                 </Link>
@@ -196,7 +195,7 @@ function ServiceDetail() {
       </section>
 
       <CTASection
-        title="READY TO TALK?"
+        title="Ready to talk?"
         copy={
           <>
             Need {service.title.toLowerCase()} for an event, a brand, a campus or a production? Tell

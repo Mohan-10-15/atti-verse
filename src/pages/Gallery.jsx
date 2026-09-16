@@ -35,7 +35,7 @@ function Gallery() {
       <PageHeader
         eyebrow="Gallery"
         crumb="Gallery"
-        title="OUR MOMENTS"
+        title="Our moments."
         subtitle="Events, performances, productions and behind-the-scenes — captured across the verse."
       />
 

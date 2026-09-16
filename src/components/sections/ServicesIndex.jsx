@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import Reveal from '../ui/Reveal.jsx'
 
 const SERVICES = [
   {
@@ -45,37 +44,26 @@ function ServicesIndex() {
     <section className="section section--dark services-index">
       <div className="container">
         <div className="services-index__head">
-          <Reveal dir="up">
-            <span className="eyebrow" style={{ color: 'var(--gold-soft)' }}>03 — What We Do</span>
-            <h2 className="section-title" style={{ marginTop: '1.1rem', fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}>
-              SIX DISCIPLINES.<br />
-              <span className="text-gold">ONE ECOSYSTEM.</span>
-            </h2>
-          </Reveal>
+          <span className="eyebrow">What we do</span>
+          <h2 className="section-title" style={{ marginTop: '0.9rem' }}>
+            Six disciplines, one ecosystem.
+          </h2>
         </div>
 
         <div className="services-index__list">
-          {SERVICES.map((service, i) => (
-            <Reveal key={service.number} dir="up" delay={i * 60}>
-              <Link to={service.to} className="services-index__row">
-                <span className="services-index__num">{service.number}</span>
-                <div className="services-index__body">
-                  <h3 className="services-index__title">{service.title}</h3>
-                  <p className="services-index__caps">{service.capabilities}</p>
-                </div>
-                <span className="services-index__arrow" aria-hidden="true">→</span>
-              </Link>
-            </Reveal>
+          {SERVICES.map((service) => (
+            <Link key={service.number} to={service.to} className="services-index__row">
+              <div className="services-index__body">
+                <h3 className="services-index__title">{service.title}</h3>
+                <p className="services-index__caps">{service.capabilities}</p>
+              </div>
+            </Link>
           ))}
         </div>
 
-        <Reveal dir="up" delay={400}>
-          <div className="services-index__foot">
-            <Link to="/services" className="text-link text-link--dark">
-              View All Services →
-            </Link>
-          </div>
-        </Reveal>
+        <div className="services-index__foot">
+          <Link to="/services" className="text-link text-link--dark">View all services</Link>
+        </div>
       </div>
     </section>
   )

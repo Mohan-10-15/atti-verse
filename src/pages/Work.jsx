@@ -23,7 +23,7 @@ function Work() {
       <PageHeader
         eyebrow="Our Work"
         crumb="Work"
-        title="THE WORK WE CREATE"
+        title="The work we create."
         subtitle="Entertainment, events, production, design and media — a visual record of what happens inside the verse."
       />
 
@@ -53,7 +53,6 @@ function Work() {
                       <p className="project-card__desc">{project.description}</p>
                       <div className="project-card__footer">
                         <span>{project.year} · View Project</span>
-                        <span aria-hidden="true">↗</span>
                       </div>
                     </div>
                   </article>

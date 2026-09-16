@@ -47,7 +47,7 @@ function WhoWeAre() {
     <section className="section">
       <div className="container grid-2">
         <div>
-          <SectionHeading eyebrow="Who We Are" title={<>A MULTI-DISCIPLINARY <span className="text-gold">CREATIVE ORGANIZATION</span></>} />
+          <SectionHeading eyebrow="Who We Are" title="A multi-disciplinary creative organization." />
           <Reveal dir="up" delay={100}>
             <p style={{ color: 'var(--text-muted)' }}>
               {`ATTII VERSE Entertainment & Productions is a multi-disciplinary creative organization working
@@ -84,7 +84,7 @@ function OurStory() {
   return (
     <section className="section section--off-white">
       <div className="container">
-        <SectionHeading center eyebrow="Our Story" title="THE JOURNEY OF THE VERSE" />
+        <SectionHeading center eyebrow="Our Story" title="The journey of the verse." />
         <div className="timeline" style={{ marginTop: '3rem' }}>
           {TIMELINE.map((item, i) => (
             <Reveal key={item.title} dir="up" delay={i * 60}>
@@ -106,9 +106,9 @@ function Vision() {
       <div className="container grid-2">
         <div>
           <SectionHeading
-            dark
+            onDark
             eyebrow="Vision"
-            title={<>A RECOGNIZED PLATFORM FOR <span className="text-gold">TALENT &amp; CREATION</span></>}
+            title="A recognized platform for talent &amp; creation."
           />
         </div>
         <Reveal dir="left" delay={120}>
@@ -135,7 +135,7 @@ function Mission() {
         <SectionHeading
           center
           eyebrow="Mission"
-          title="WHAT WE ARE BUILT TO DO"
+          title="What we are built to do"
           subtitle="Eight commitments that guide how ATTII VERSE organizes, creates and grows."
         />
         <div className="mission-num" style={{ marginTop: '2.5rem' }}>
@@ -160,7 +160,7 @@ function CoreValues() {
         <SectionHeading
           center
           eyebrow="Values"
-          title="THE PRINCIPLES WE PERFORM BY"
+          title="The principles we perform by."
           subtitle="Sixteen principles held together by one culture."
         />
         <div className="values-editorial" style={{ marginTop: '1.5rem' }}>
@@ -182,7 +182,7 @@ function Structure() {
         <SectionHeading
           center
           eyebrow="Organizational Structure"
-          title={<>BUILT WITH STRUCTURE.<br /><span className="text-gold">DRIVEN BY CREATIVITY.</span></>}
+          title="Built with structure, driven by creativity."
           subtitle="Executive leadership and governance oversee five dedicated divisions."
         />
         <OrganizationTree />
@@ -198,7 +198,7 @@ function Leadership() {
         <SectionHeading
           center
           eyebrow="Leadership"
-          title="THE PEOPLE BEHIND THE VISION"
+          title="The people behind the vision."
           subtitle="The founders who set the direction, the standards and the culture of ATTII VERSE."
         />
         <div className="grid-4" style={{ marginTop: '2.5rem' }}>
@@ -222,7 +222,7 @@ function About() {
       <PageHeader
         eyebrow="About Us"
         crumb="About"
-        title="ABOUT ATTII VERSE"
+        title="About ATTII VERSE"
         subtitle="A universe built around talent, creativity and opportunity."
       />
       <WhoWeAre />
