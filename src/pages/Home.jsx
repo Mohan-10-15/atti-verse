@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Seo from '../components/ui/Seo.jsx'
 import Img from '../components/ui/Img.jsx'
-import EventCard from '../components/cards/EventCard.jsx'
+import Eyebrow from '../components/ui/Eyebrow.jsx'
 import WhyAttii from '../components/sections/WhyAttii.jsx'
 import ServicesIndex from '../components/sections/ServicesIndex.jsx'
 import ProductionShowcase from '../components/sections/ProductionShowcase.jsx'
@@ -59,21 +59,27 @@ function Hero() {
 
 function VerseIntro() {
   return (
-    <section className="section intro-statement">
+    <section className="section intro-editorial">
       <div className="container">
-        <span className="eyebrow">Inside the verse</span>
-        <p className="intro-statement__line" style={{ marginTop: '1.4rem' }}>
-          A universe of
-        </p>
-        <p className="intro-statement__line intro-statement__line--gold">talent &amp; craft.</p>
-        <p className="intro-statement__note">
-          {SITE.fullName} brings together entertainment, event management, media production,
-          creative services and talented creators under one growing platform — built with
-          structure, run with discipline.
-        </p>
-        <p className="mt-md">
-          <Link to="/about" className="text-link">About the verse</Link>
-        </p>
+        <Eyebrow index="01">The Verse</Eyebrow>
+        <div className="intro-editorial__grid">
+          <h2 className="intro-editorial__line">
+            An entertainment and production collective — built around talent, live energy and{' '}
+            <em>moments that stay with people.</em>
+          </h2>
+          <div>
+            <div className="intro-editorial__copy">
+              <p>
+                {SITE.fullName} brings together entertainment, event management, media production
+                and creative services under one growing platform — structured, and run with
+                discipline.
+              </p>
+            </div>
+            <p className="intro-editorial__link">
+              <Link to="/about" className="text-link">About the verse</Link>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   )
@@ -87,7 +93,7 @@ function FeaturedWork() {
         <div className="work-editorial">
           <div className="work-editorial__head">
             <div>
-              <span className="eyebrow">Selected work</span>
+              <Eyebrow index="04">Selected Work</Eyebrow>
               <h2 className="section-title" style={{ marginTop: '0.9rem' }}>
                 The work we're known for.
               </h2>
@@ -119,21 +125,56 @@ function FeaturedWork() {
 }
 
 function FeaturedEvents() {
-  const events = [...FEATURED_EVENTS, ...EVENT_PLACEHOLDERS].slice(0, 3)
+  const featured = FEATURED_EVENTS[0]
+  const upcoming = EVENT_PLACEHOLDERS
   return (
     <section className="section section--dark">
       <div className="container">
         <div className="section-head-row">
           <div className="section-head" style={{ marginBottom: 0 }}>
-            <span className="eyebrow">Events</span>
+            <Eyebrow index="05">Events</Eyebrow>
             <h2 className="section-title section-head__title">Moments we've created.</h2>
           </div>
           <Link to="/events" className="text-link text-link--dark">View all events</Link>
         </div>
-        <div className="grid-3" style={{ marginTop: '2.5rem' }}>
-          {events.map((event, i) => (
-            <EventCard key={event.id} event={event} index={i} />
-          ))}
+
+        <div className="events-featured">
+          <div>
+            <Link to={`/events/${featured.id}`} className="media-frame events-featured__media">
+              <Img src={featured.image} alt={`${featured.title} — ${featured.category}`} />
+            </Link>
+            <div className="events-featured__meta">
+              {featured.category ? (
+                <span className="events-featured__chip">{featured.category}</span>
+              ) : null}
+              <span className="events-featured__chip">On ground record</span>
+            </div>
+          </div>
+
+          <aside>
+            <span className="events-featured__role">{featured.role}</span>
+            <h3 className="events-featured__title">{featured.title}</h3>
+            <p className="events-featured__desc">{featured.description}</p>
+            <div className="events-featured__details">
+              <span>Date — To be announced</span>
+              <span>Location — City, Tamil Nadu</span>
+            </div>
+            <p className="events-featured__link">
+              <Link to={`/events/${featured.id}`} className="text-link text-link--dark">
+                View event details
+              </Link>
+            </p>
+
+            <ol className="events-index">
+              {upcoming.map((event, i) => (
+                <li key={event.id} className="events-index__row">
+                  <span className="events-index__num">0{i + 1}</span>
+                  <span className="events-index__title">{event.title}</span>
+                  <span className="events-index__status">To Be Added</span>
+                </li>
+              ))}
+            </ol>
+          </aside>
         </div>
       </div>
     </section>
@@ -148,7 +189,7 @@ function TeamPreview() {
           <div className="team-equal__head">
             <div className="section-head-row">
               <div>
-                <span className="eyebrow">Leadership</span>
+                <Eyebrow index="08">Leadership</Eyebrow>
                 <h2 className="section-title" style={{ marginTop: '0.9rem' }}>
                   The people behind the verse.
                 </h2>

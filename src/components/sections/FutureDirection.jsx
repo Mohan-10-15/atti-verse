@@ -12,6 +12,7 @@ function FutureDirection({ eyebrow = 'The next verse' }) {
           <div className="future__intro">
             <SectionHeading
               onDark
+              index="09"
               eyebrow={eyebrow}
               title="Built for what's ahead."
             />

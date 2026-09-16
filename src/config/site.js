@@ -53,7 +53,7 @@ export const NAV_LINKS = [
 
 // Secondary links surfaced in the footer for deep pages.
 export const FOOTER_EXTRA_LINKS = [
-  { label: 'Achievements', to: '/achievements' },
+  { label: 'Milestones', to: '/achievements' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Media & Productions', to: '/productions' },
   { label: "What's Next", to: '/upcoming' },

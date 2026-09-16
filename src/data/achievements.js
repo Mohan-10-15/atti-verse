@@ -7,7 +7,7 @@ export const HOME_MILESTONES = [
   { title: 'Cultural Event Participation', note: 'Verified event participation' },
   { title: 'Performance Experience', note: 'Live performance experience' },
   { title: 'Growing Creative Network', note: 'Expand and strengthening' },
-  { title: 'Certifications & Recognition', note: 'Documented and stored' },
+  { title: 'Talent & Production Team', note: 'Built around performance, production and events' },
 ]
 
 export const ORGANIZATIONAL_MILESTONES = [
@@ -21,13 +21,10 @@ export const ORGANIZATIONAL_MILESTONES = [
   'Operational systems',
 ]
 
+// Only verified, documented items belong here. Anything added must
+// have an on-record event entry alongside it (see data/events.js).
 export const CREATIVE_MILESTONES = [
-  'SRM Pongal Vizha 2026 participation',
-  'Dance competition participation',
-  'Flash mob performances',
-  'Cultural stage performances',
-  'Participation recognition',
-  'Certifications',
+  'SRM Pongal Vizha 2026 — cultural participation & performances',
 ]
 
 export const CERTIFICATES = [

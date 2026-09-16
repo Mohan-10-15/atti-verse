@@ -31,26 +31,31 @@ function Responsibilities() {
   return (
     <section className="section section--off-white">
       <div className="container">
-        <SectionHeading center eyebrow="Leadership Roles" title="What our leaders own." />
-        <div className="grid-4">
-          {LEADERSHIP.map((member, i) => (
-            <Reveal key={member.id} dir="up" delay={(i % 4) * 90}>
-              <article className="milestone-card" style={{ minHeight: '100%' }}>
-                <h3 className="milestone-card__title">{member.name}</h3>
-                <p className="milestone-card__note" style={{ color: 'var(--emerald)', fontWeight: 700 }}>
-                  {member.role}
-                </p>
-                <ul className="check-list" style={{ marginTop: '0.9rem', gridTemplateColumns: '1fr' }}>
+        <SectionHeading
+          eyebrow="Leadership Roles"
+          title="What our leaders own."
+          subtitle="Clear ownership is how the collective stays serious — a named lead behind every discipline."
+        />
+        <ol className="leaders">
+          {LEADERSHIP.map((member) => (
+            <li key={member.id} className="leaders__row">
+              <div>
+                <h3 className="leaders__name">{member.name}</h3>
+                <p className="leaders__role">{member.role}</p>
+              </div>
+              <div>
+                <p className="leaders__focus">{member.focus}</p>
+                <ul className="leaders__tags">
                   {member.responsibilities.map((r) => (
-                    <li key={r} style={{ fontSize: '0.85rem' }}>
+                    <li key={r} className="leaders__tag">
                       {r}
                     </li>
                   ))}
                 </ul>
-              </article>
-            </Reveal>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )
@@ -64,30 +69,26 @@ function Categories() {
           center
           eyebrow="The Collective"
           title="Roles across the verse."
-          subtitle="Member cards below are placeholders — photos and profiles will be added as the team is documented."
+          subtitle="The collective is organized across five disciplines — membership profiles will be documented as the team grows."
         />
-        <div className="grid-3" style={{ rowGap: '2.5rem' }}>
+        <ol className="roster-cats">
           {TEAM_CATEGORIES.map((cat, ci) => (
-            <Reveal key={cat.id} dir="up" delay={ci * 80}>
-              <div>
-                <div style={{ marginBottom: '1.2rem' }}>
-                  <h3 className="card-title">{cat.title}</h3>
-                  <p className="feature__tagline" style={{ fontSize: '0.86rem' }}>
-                    {cat.subtitle}
-                  </p>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+            <Reveal key={cat.id} as="li" dir="up" delay={ci * 60}>
+              <div className="roster-cats__row">
+                <h3 className="roster-cats__cat">{cat.title}</h3>
+                <p className="roster-cats__sub">{cat.subtitle}</p>
+                <p className="roster-cats__roles">
                   {cat.placeholderRoles.map((role) => (
-                    <div key={role} className="cat-card">
-                      <span className="cat-card__role">{role}</span>
-                      <span className="cat-card__note">{PLACEHOLDER.tba} — profile coming soon.</span>
-                    </div>
+                    <span key={role}>
+                      {role}
+                      <span className="visually-hidden"> — {PLACEHOLDER.tba}</span>
+                    </span>
                   ))}
-                </div>
+                </p>
               </div>
             </Reveal>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )

@@ -100,8 +100,8 @@ function Achievements() {
         path="/achievements"
       />
       <PageHeader
-        eyebrow="Achievements"
-        crumb="Achievements"
+        eyebrow="Milestones"
+        crumb="Milestones"
         title="Milestones & recognition."
         subtitle="Every milestone shown here is earned and verified. New records are added as we continue to build."
       />

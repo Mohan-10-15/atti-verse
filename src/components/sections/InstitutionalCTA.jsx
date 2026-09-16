@@ -12,13 +12,13 @@ function InstitutionalCTA() {
           <div className="institutional">
             <div className="institutional__text">
               <span className="eyebrow">For Colleges &amp; Institutions</span>
-              <h2 className="institutional__title">Planning an institutional event?</h2>
+              <h2 className="institutional__title">Planning your next event?</h2>
               <p className="institutional__desc">
                 From cultural celebrations and college fests to entertainment, performances and
                 complete production support — ATTII VERSE can plan, coordinate and deliver.
               </p>
               <Link to="/contact" className="btn btn--gold institutional__cta">
-                <span>Discuss your event</span>
+                <span>Start a conversation</span>
               </Link>
             </div>
             <ul className="institutional__points">

@@ -1,47 +1,40 @@
 import { Link } from 'react-router-dom'
-import SectionHeading from './../ui/SectionHeading.jsx'
+import Eyebrow from './../ui/Eyebrow.jsx'
 import { WHY_BLOCKS } from '../../data/organization.js'
 
-// "Why ATTII VERSE" — More than entertainment. A structured creative organization.
+// "Why ATTII VERSE" — editorial statement + numbered index.
 function WhyAttii() {
   return (
     <section className="section">
       <div className="container">
-        <div className="why-attii">
-          <div className="why-attii__intro">
-            <SectionHeading
-              eyebrow="Why ATTII VERSE"
-              title={
-                <>
-                  More than entertainment —
-                  <br />
-                  a structured creative organization.
-                </>
-              }
-            />
-            <p style={{ color: 'var(--text-muted)' }}>
+        <div className="why-editorial">
+          <div className="why-editorial__lead">
+            <Eyebrow index="02">Why ATTII VERSE</Eyebrow>
+            <h2 className="section-title" style={{ marginTop: '1rem' }}>
+              More than entertainment — a structured creative organization.
+            </h2>
+            <p className="why-editorial__copy">
               ATTII VERSE operates through dedicated divisions and coordinated teams — leadership,
-              production, events, media and talent working together toward one standard.
+              production, events, media and talent working together toward one standard. We are
+              growing, but we are serious — and that shows in how we organize, coordinate and
+              deliver.
             </p>
-            <p style={{ color: 'var(--text-muted)', marginTop: '1.1rem' }}>
-              We are growing, but we are serious. That seriousness shows up in how we organize,
-              how we coordinate and how we deliver.
-            </p>
-            <p className="mt-lg">
+            <p className="intro-editorial__link">
               <Link to="/about" className="text-link">How we are built</Link>
             </p>
           </div>
 
-          <div className="why-attii__list">
+          <ol className="why-editorial__list">
             {WHY_BLOCKS.map((block) => (
-              <article key={block.number} className="why-attii__row">
-                <div className="why-attii__body">
-                  <h3 className="why-attii__title">{block.title}</h3>
-                  <p className="why-attii__note">{block.note}</p>
+              <li key={block.number} className="why-editorial__row">
+                <span className="why-editorial__num">{block.number}</span>
+                <div>
+                  <h3 className="why-editorial__title">{block.title}</h3>
+                  <p className="why-editorial__note">{block.note}</p>
                 </div>
-              </article>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </div>
     </section>

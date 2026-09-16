@@ -1,7 +1,19 @@
-function SectionHeading({ eyebrow, title, subtitle, center = false, onDark = false }) {
+function SectionHeading({ index, eyebrow, title, subtitle, center = false, onDark = false }) {
   return (
     <div className={`section-head ${center ? 'section-head--center' : ''}`}>
-      {eyebrow && <span className={`eyebrow ${center ? 'eyebrow--center' : ''}`}>{eyebrow}</span>}
+      {eyebrow && (
+        <span className={`eyebrow ${center ? 'eyebrow--center' : ''}`}>
+          {index ? (
+            <>
+              <span className="eyebrow__num" aria-hidden="true">
+                {index}
+              </span>
+              <span className="eyebrow__rule" aria-hidden="true" />
+            </>
+          ) : null}
+          <span className="eyebrow__label">{eyebrow}</span>
+        </span>
+      )}
       {title && <h2 className="section-title section-head__title">{title}</h2>}
       {subtitle && <p className="section-head__sub">{subtitle}</p>}
     </div>

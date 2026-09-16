@@ -272,7 +272,9 @@ h6 {
    ============================================================ */
 
 .eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.75rem;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.34em;
@@ -280,7 +282,25 @@ h6 {
   color: var(--gold);
 }
 
+.eyebrow__num {
+  font-variant-numeric: tabular-nums;
+  color: var(--gold);
+}
+
+.eyebrow__rule {
+  width: 1.4em;
+  height: 1px;
+  flex: none;
+  align-self: center;
+  background: var(--gold-line);
+}
+
+.eyebrow__label {
+  color: var(--gold-soft);
+}
+
 .eyebrow--center {
+  justify-content: center;
   text-align: center;
 }
 

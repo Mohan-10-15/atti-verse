@@ -2,10 +2,11 @@ import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Reveal from './../ui/Reveal.jsx'
 import Img from './../ui/Img.jsx'
+import Eyebrow from './../ui/Eyebrow.jsx'
 import Icon from './../ui/Icon.jsx'
 import { PRODUCTIONS } from '../../data/productions.js'
 
-// Cinematic production showcase — "From concept to final frame."
+// Cinematic production showcase — "From concept to stage."
 function ProductionShowcase() {
   const stripRef = useRef(null)
 
@@ -54,9 +55,9 @@ function ProductionShowcase() {
       <div className="container">
         <div className="prod-show__head">
           <Reveal dir="up">
-            <span className="eyebrow">What we produce</span>
-            <h2 className="section-title" style={{ marginTop: '1.1rem' }}>
-              From concept to final frame.
+            <Eyebrow index="06">Production</Eyebrow>
+            <h2 className="section-title" style={{ marginTop: '1rem' }}>
+              From concept to stage.
             </h2>
           </Reveal>
           <Reveal dir="up" delay={150}>
@@ -88,8 +89,9 @@ function ProductionShowcase() {
 
         <Reveal dir="up" delay={120}>
           <p className="prod-show__intro">
-            Photography, videography, editing, reels, short films, direction and cinematic
-            storytelling — one production ecosystem from first idea to last frame.
+            Creative planning, programming, event storytelling, stage design, artist coordination
+            and execution — every production we take on moves from a first idea to a finished
+            experience, in one disciplined flow.
           </p>
         </Reveal>
       </div>

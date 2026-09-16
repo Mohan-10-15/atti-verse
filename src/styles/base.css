@@ -191,6 +191,7 @@
   break-inside: avoid;
   display: inline-block;
   width: 100%;
+  margin-bottom: 1.4rem;
 }
 
 @media (max-width: 1000px) {

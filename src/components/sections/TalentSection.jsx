@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
+import Eyebrow from './../ui/Eyebrow.jsx'
 import Reveal from './../ui/Reveal.jsx'
-import SectionHeading from './../ui/SectionHeading.jsx'
 
 const ROLES = [
   'Performers',
@@ -15,17 +15,17 @@ const ROLES = [
   'Organizers',
 ]
 
-// Talent — "Talent is where everything begins."
+// Talent — roster-style index "Talent is where everything begins."
 function TalentSection() {
   return (
     <section className="section section--light-green talent">
       <div className="container">
         <div className="talent__grid">
           <div>
-            <SectionHeading
-              eyebrow="The talent"
-              title="Talent is where everything begins."
-            />
+            <Eyebrow index="07">The Talent</Eyebrow>
+            <h2 className="section-title" style={{ marginTop: '1rem' }}>
+              Talent is where everything begins.
+            </h2>
             <Reveal dir="up" delay={120}>
               <p style={{ color: 'var(--text-muted)' }}>
                 ATTII VERSE is also a talent ecosystem — a place where performers, creators and
@@ -50,14 +50,16 @@ function TalentSection() {
             </Reveal>
           </div>
 
-          <Reveal dir="left" delay={200}>
-            <ul className="talent__roles">
-              {ROLES.map((role) => (
-                <li key={role} className="talent__role">
-                  <span>{role}</span>
+          <Reveal dir="left" delay={150}>
+            <ol className="roster">
+              {ROLES.map((role, i) => (
+                <li key={role} className="roster__row">
+                  <span className="roster__num">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="roster__name">{role}</span>
+                  <span className="roster__cap">Creator / Performer</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </Reveal>
         </div>
       </div>
